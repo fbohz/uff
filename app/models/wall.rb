@@ -6,4 +6,9 @@ class Wall < ApplicationRecord
   has_many :bravos
   # accepts_nested_attributes_for 
   has_many_attached :images
+
+
+  def bravo_count
+
+  end 
 end
