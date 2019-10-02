@@ -5,4 +5,5 @@ class Wall < ApplicationRecord
   has_many :tags
   has_many :bravos
   # accepts_nested_attributes_for 
+  has_many_attached :images
 end
