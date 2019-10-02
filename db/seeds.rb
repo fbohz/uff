@@ -24,7 +24,7 @@ pez = Artist.new(
     hometown: "Barcelona",
     instagram: "https://www.instagram.com/pezbarcelona/?hl=en",
     website: "https://el-pez.com/"
-    )    
+    ) 
 t1 = Tag.new(name: "fantasy")
 t2 = Tag.new(name: "abstract") 
 t3 = Tag.new(name: "urban")   
