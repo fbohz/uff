@@ -44,7 +44,7 @@ candelaria1.artist_walls.last.update(contribution_details: "collaboration betwee
 
 #get number of artists contributing to project
 # candelaria1.artists.length
-#get wall city
+#get wall city 
 #candelaria1.location.city
 #get artist tags
 #pez.tags.first.name
