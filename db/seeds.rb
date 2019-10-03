@@ -37,4 +37,20 @@ candelaria1.artists += [rodez, pez]
 candelaria1.tags += [t1, t2, t3]
 candelaria1.save
 candelaria1.artist_walls.last.update(contribution_details: "collaboration between pez and rodez")
-#candelaria1.artist_walls.last 
+
+# ACCESSING DATA e.g.
+# check changes
+#candelaria1.artist_walls.last.contribution_details 
+
+#get number of artists contributing to project
+# candelaria1.artists.length
+#get wall city
+#candelaria1.location.city
+#get artist tags
+#pez.tags.first.name
+
+#get artists locations
+#pez.locations.first.city
+
+#get bravos
+#candelaria1.bravos.length
