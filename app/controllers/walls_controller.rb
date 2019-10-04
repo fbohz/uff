@@ -7,7 +7,7 @@ class WallsController < ApplicationController
     private
 
     def wall_params
-        #NEED TO COMPLETE AND INCLUDE NESTED FORMS ATTRIBUTES TOO
+        #NEED TO COMPLETE AND INCLUDE NESTED FORMS ATTRIBUTES TOO don't forget nested :id too, 
         params.require(:wall).permit() 
     end 
 end

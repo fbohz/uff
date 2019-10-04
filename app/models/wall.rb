@@ -7,6 +7,11 @@ class Wall < ApplicationRecord
   accepts_nested_attributes_for :artists
   has_many_attached :images
 
+  #custom nested build try. Do binding.pry to see what is self.
+  # def artistys_attributes=(artist_attr)
+  #   self.artist = Artist.find_or_create_by(name: artist_attr[:name])
+  #   self.artist.update(artist_attr)
+  # end
 
   def bravo_count
 
