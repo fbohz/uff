@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 2019_10_02_221825) do
 
   create_table "walls", force: :cascade do |t|
     t.boolean "active"
-    t.date "year_done"
+    t.date "date_done"
     t.text "description"
     t.string "address"
     t.integer "location_id", null: false
