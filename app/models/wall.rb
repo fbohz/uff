@@ -4,7 +4,7 @@ class Wall < ApplicationRecord
   has_many :artists, through: :artist_walls
   has_many :tags
   has_many :bravos
-  # accepts_nested_attributes_for 
+  accepts_nested_attributes_for :artists
   has_many_attached :images
 
 
