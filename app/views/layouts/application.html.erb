@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bravoo</title>
+    <title>Uff! Amazing Street Art</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   </head>
 
   <body>
+    <!--navbar -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="<%= root_url %>"/>Home</a>
+
+        </div>
+    </nav>
+
+
+    <!-- content -->
     <%= yield %>
   </body>
 </html>
