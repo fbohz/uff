@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Uff! Amazing Street Art</title>
+    <title>Uff! - Discover Street Art </title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
          <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+     <%= favicon_link_tag asset_path('uff-favi-tw.png') %>    
   </head>
 
   <body>
@@ -24,5 +25,15 @@
 
     <!-- content -->
     <%= yield %>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+         <strong>© 2019 Uff!</strong> <br>Made with <span class="love">❤</span> by
+          <a href="http://github.com/fbohz/" target="_blank">Felipe Bohorquez</a>
+       </p>
+      </div>
+    </footer>
+    <!-- content -->
+
   </body>
 </html>
