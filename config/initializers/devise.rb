@@ -298,6 +298,15 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 
   #Omniauth Config
-  config.omniauth :facebook, "APP_ID", "APP_SECRET", scope: 'email', info_fields: 'email,name'
+  config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET'],
+  scope: 'email',
+  info_fields: 'email,name',
+  client_options: {
+      site: 'https://graph.facebook.com/v2.11',
+      authorize_url: "https://www.facebook.com/v2.11/dialog/oauth"
+  }
+
+  config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"], access_type: "online"
+
 
 end
