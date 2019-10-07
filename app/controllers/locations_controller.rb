@@ -27,6 +27,11 @@ class LocationsController < ApplicationController
 
     private
 
+    def location_params
+        #NEED TO COMPLETE AND INCLUDE NESTED FORMS ATTRIBUTES TOO don't forget nested :id too, 
+        params.require(:location).permit() 
+     end 
+
     def set_location
         @location = Location.find(params[:id])
     end
