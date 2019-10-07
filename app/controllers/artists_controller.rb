@@ -1,4 +1,6 @@
 class ArtistsController < ApplicationController
+    before_action :set_artist, only: [:show, :edit, :update, :destroy]
+
 
     def new
         @artist = Artist.new
@@ -12,4 +14,9 @@ class ArtistsController < ApplicationController
        #NEED TO COMPLETE AND INCLUDE NESTED FORMS ATTRIBUTES TOO don't forget nested :id too, 
        params.require(:artist).permit() 
     end 
+
+    def set_artist
+        @artist = Artist.find(params[:id])
+    end
+      
 end
