@@ -1,9 +1,27 @@
 class WallsController < ApplicationController
     before_action :set_wall, only: [:show, :edit, :update, :destroy]
 
+    def index
+    end 
+
     def new
         @wall = Wall.new
         @wall.artists.build #need to check this and modify
+    end
+
+    def show
+    end 
+
+    def create
+    end 
+
+    def edit
+    end 
+
+    def update
+    end 
+
+    def destroy
     end
     
     private
