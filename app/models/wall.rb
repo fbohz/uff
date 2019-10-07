@@ -1,4 +1,5 @@
 class Wall < ApplicationRecord
+  validates_presence_of :description
   belongs_to :location
   has_many :artist_walls
   has_many :artists, through: :artist_walls

@@ -1,4 +1,6 @@
 class Artist < ApplicationRecord
+    validates_presence_of :name, :hometown, :bio
+    validates_uniqueness_of :name
     has_many :artist_walls, dependent: :destroy
     has_many :walls, through: :artist_walls
     has_many :locations, through: :walls
