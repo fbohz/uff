@@ -5,5 +5,6 @@ class Location < ApplicationRecord
     has_many :artists, through: :walls
 
     #NOTE
-    #maybe use gem to validate city input???
+    #maybe use RUBY GEM to validate city input???
+        #https://github.com/loureirorg/city-state/
 end
