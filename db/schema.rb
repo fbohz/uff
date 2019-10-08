@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2019_10_06_161727) do
   end
 
   create_table "artist_walls", force: :cascade do |t|
-    t.text "contribution_details"
+    t.text "collaboration_details"
     t.integer "artist_id", null: false
     t.integer "wall_id", null: false
     t.datetime "created_at", precision: 6, null: false

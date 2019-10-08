@@ -1,3 +1,46 @@
 <%= form_with model: artist, local:true do |f| %>
+         <div class="field">
+         <div class="control">
+            <%= f.label :name, size: 50 %>
+            <%= f.text_field :name %>
+         </div></div>
+
+         <div class="field">
+         <div class="control">
+            <%= f.label :hometown, size: 50 %>
+            <%= f.text_field :hometown %>
+         </div></div>
+
+         
+         <div class="field">
+         <div class="control">
+            <%= f.label :instagram, size: 50 %>
+            <%= f.text_field :instagram %>
+         </div></div>                 
+         
+         <div class="field">
+         <div class="control">
+            <%= f.label :website, size: 50 %>
+            <%= f.text_field :website %>
+         </div></div>           
+
+         <div class="field">
+         <div class="control">
+            <%= f.label :bio %>
+            <%= f.text_area :bio, cols: 50, rows: 6  %>
+         </div></div>
+
+        <div class="field">
+         <!-- need implement add file later--> 
+         <div class="control">
+            <%= f.label :image %>
+            <%= f.file_field :image %>
+         </div></div>         
+
+        <!-- need add new tag button, maybe break up this form? --> 
+    </div><br>
+    <div class="buttons">
+    <%= f.submit "Add Artist", { class: 'button is-danger' } %>
+    </div>
 
 <% end %>

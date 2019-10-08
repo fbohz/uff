@@ -70,3 +70,6 @@ gem 'jquery-rails'
 
 #Country validator
 gem 'countries'
+
+#url validator
+gem "validate_url"

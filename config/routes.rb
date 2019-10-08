@@ -6,10 +6,12 @@ Rails.application.routes.draw do
     resources :walls, only: [:show, :index, :new, :edit]
   end
 
-  resources :walls do
-    resources :artists, only: [:show, :index]
-  end
+  resources :walls 
 
   resources :locations
+
+  # resources :walls do
+  #   resources :artists, only: [:show, :index]
+  # end
 
 end
