@@ -14,6 +14,8 @@ class LocationsController < ApplicationController
     end 
 
     def create
+        raise params.inspect
+
     end 
 
     def edit
@@ -29,7 +31,7 @@ class LocationsController < ApplicationController
 
     def location_params
         #NEED TO COMPLETE AND INCLUDE NESTED FORMS ATTRIBUTES TOO don't forget nested :id too, 
-        params.require(:location).permit() 
+        params.require(:location).permit(:city, :continent, :country) 
      end 
 
     def set_location

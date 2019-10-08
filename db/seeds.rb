@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#BRAVO
+#UFF 
 #location needs to be saved first.
 bogota = Location.new(city: "Bogota", country: "Colombia", continent: "South America")
 
@@ -54,3 +54,6 @@ candelaria1.artist_walls.last.update(contribution_details: "collaboration betwee
 
 #get bravos
 #candelaria1.bravos.length
+
+#MORE LOCATIONS
+washingtondc = Location.new(city: "Washington DC", country: "United States", continent: "North America")
