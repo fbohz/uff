@@ -4,7 +4,10 @@ class Location < ApplicationRecord
     has_many :walls
     has_many :artists, through: :walls
 
-    #NOTE
-    #maybe use RUBY GEM to validate city input???
-        #https://github.com/loureirorg/city-state/
+    #E.g. using countries GEM: 
+        # query = 'united states'
+        # try = ISO3166::Country.find_country_by_name(query)
+    #if not nil:
+        # country = try.name
+        # continent = try.continent
 end

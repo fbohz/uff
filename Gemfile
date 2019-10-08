@@ -64,5 +64,9 @@ gem "omniauth-facebook", "~> 5.0"
 gem "omniauth-google-oauth2", "~> 0.8.0"
 gem "dotenv-rails", "~> 2.7"
 
+#for autocomplete using jquery
+gem 'jquery-ui-rails'
+gem 'jquery-rails'
+
 #Country validator
 gem 'countries'
