@@ -61,7 +61,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "devise", "~> 4.7"
 # gem "omniauth", "~> 1.9"
 gem "omniauth-facebook", "~> 5.0"
-
 gem "omniauth-google-oauth2", "~> 0.8.0"
-
 gem "dotenv-rails", "~> 2.7"
+
+#Country validator
+gem 'countries'
