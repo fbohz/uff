@@ -5,7 +5,13 @@
         <%= f.text_field :artist_name, :class => "control"%>
     </div><br>
     <!-- need add new artist button, maybe break up this form? --> 
-
+        <!-- this activates if 2 artists change according. --> 
+         <div class="field">
+         <div class="control">
+            <%= f.label :two_plus_artists_contribution_details, size: 50 %>
+            <%= f.text_field :artists_contribution_details %>
+         </div></div>    
+        <!-- above mockup only --> 
     <div class="field">
     <h4 class="title is-4">Wall Location:</h5>
         <%= f.text_field :wall_location, :class => "control"%>
@@ -16,7 +22,7 @@
         <div class="field">
          <div class="control">
             <%= f.label :date_done %>
-            <%= f.datetime_select :date_done %>
+            <%= f.date_select :date_done %>
          </div></div>
          <div class="field">
          <div class="control">
