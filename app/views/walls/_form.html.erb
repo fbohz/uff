@@ -9,8 +9,8 @@
         <!-- this activates if 2 artists change according. GENERATE BELOW AFTER ADD ARTIST BUTTON IS CLICKED --> 
          <div class="field">
          <div class="control">
-            <%= f.label :artist_contribution_details %>
-            <%= f.text_area :artist_contribution_details, cols: 50, rows: 3  %>
+            <%= f.label :collaboration_details %>
+            <%= f.text_area :collaboration_details, cols: 50, rows: 3  %>
          </div></div>    
         <!-- above mockup only --> 
     <div class="field">
@@ -22,8 +22,8 @@
     <h4 class="title is-4">Wall Details:</h5>
         <div class="field">
          <div class="control">
-            <%= f.label :date_done %>
-            <%= f.date_select :date_done %>
+            <%= f.label "year done"%>
+            <%= f.select :date_done, (Date.today.year-50)..(Date.today.year), selected: Time.current.year %>
          </div></div>
          <div class="field">
          <div class="control">
