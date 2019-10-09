@@ -25,7 +25,7 @@
         <div class="field">
          <div class="control">
             <%= f.label "year done"%>
-            <%= f.select :date_done, (Date.today.year-50)..(Date.today.year), selected: Time.current.year %>
+            <%= f.select :date_done, (Date.today.year-50)..(Date.today.year), include_blank: true  %>
          </div></div>
          <div class="field">
          <div class="control">
