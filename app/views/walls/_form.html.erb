@@ -2,7 +2,7 @@
 
     <div class="field">
     <h4 class="title is-4">Wall Artist(s):</h5>
-        <%= f.text_field :artist_name, :class => "control"%>
+        <%= f.text_field :artist_name, class: "control", required: true %>
     </div><br>
     <!-- need add new artist button, maybe break up this form? --> 
 
@@ -15,7 +15,7 @@
         <!-- above mockup only --> 
     <div class="field">
     <h4 class="title is-4">Wall Location:</h5>
-        <%= f.text_field :wall_location, :class => "control"%>
+        <%= f.text_field :wall_location, class: "control", required: true%>
     </div><br>
 
     <div class="field">
@@ -33,7 +33,7 @@
          <div class="field">
          <div class="control">
             <%= f.label :description %>
-            <%= f.text_area :description, cols: 50, rows: 6  %>
+            <%= f.text_area :description, cols: 50, rows: 6, required: true  %>
          </div></div>
         <div class="field">
          <!-- need implement add file later--> 
@@ -44,12 +44,12 @@
 
     <div class="field">
         <%= f.label :tags %>
-        <%= f.text_field :wall_tags, :class => "control"%>
-    </div><br>
-        <!-- need add new tag button, maybe break up this form? --> 
-    </div><br>
-    <div class="buttons">
-    <%= f.submit "Add", { class: 'button is-danger' } %>
+        <%= f.text_field :wall_tags, class: "control", required: true %>
     </div>
+        <!-- need add new tag button, maybe break up this form? --> 
+    </div>
+    <div class="buttons">
+    <%= f.submit "Add Wall", { class: 'button is-danger' } %>
+    </div><br>
 
 <% end %>

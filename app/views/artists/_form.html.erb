@@ -2,13 +2,13 @@
          <div class="field">
          <div class="control">
             <%= f.label :name, size: 50 %>
-            <%= f.text_field :name %>
+            <%= f.text_field :name, required: true %>
          </div></div>
 
          <div class="field">
          <div class="control">
             <%= f.label :hometown, size: 50 %>
-            <%= f.text_field :hometown %>
+            <%= f.text_field :hometown, required: true %>
          </div></div>
 
          
@@ -27,7 +27,7 @@
          <div class="field">
          <div class="control">
             <%= f.label :bio %>
-            <%= f.text_area :bio, cols: 50, rows: 6  %>
+            <%= f.text_area :bio, cols: 50, rows: 6, required: true  %>
          </div></div>
 
         <div class="field">
@@ -41,6 +41,6 @@
     </div><br>
     <div class="buttons">
     <%= f.submit "Add Artist", { class: 'button is-danger' } %>
-    </div>
+    </div><br>
 
 <% end %>
