@@ -1,0 +1,13 @@
+  
+    <% if model.errors.any? %>
+     <br><div class="notification"> 
+      <div id="error_explanation">
+        <h2>Some errors prevented from submitting the form:</h2>
+
+        <ul>
+          <% model.errors.full_messages.each do |message| %>
+            <li class="love">- <%= message %></li>
+          <% end %>
+        </ul>
+      </div></div>
+    <% end %>
