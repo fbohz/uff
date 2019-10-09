@@ -1,9 +1,6 @@
 require 'uri'
 
 class Artist < ApplicationRecord
-
-
-
     validates_presence_of :name, :hometown, :bio
     validates_uniqueness_of :name
     validates :name, :hometown, length: { in: 2..20 }

@@ -30,7 +30,7 @@ class ArtistsController < ApplicationController
 
     def artist_params
        #NEED TO COMPLETE AND INCLUDE NESTED FORMS ATTRIBUTES TOO don't forget nested :id too, 
-       params.require(:artist).permit() 
+       params.require(:artist).permit(:name, :hometown, :instagram, :website, :bio, :image) 
     end 
 
     def set_artist
