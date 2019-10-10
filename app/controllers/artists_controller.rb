@@ -32,10 +32,11 @@ class ArtistsController < ApplicationController
     end 
 
     def update
-        # binding.pry
+
         # @update_artist = Artist.new(artist_params)
         check_params = artist_params
         add_http_protocol(check_params)
+
         if @artist.update(check_params)
             redirect_to artist_path(@artist)
         else
@@ -60,12 +61,10 @@ class ArtistsController < ApplicationController
     def add_http_protocol(params)
         array = ["#{params[:instagram]}", "#{params[:website]}"]
         array.collect! do |url|
-            unless url[/\Ahttp:\/\//] || url[/\Ahttps:\/\//] || url.empty? 
-            url = "http://#{url}"
-            end
+            url = "http://#{url}" unless url[/\Ahttp:\/\//] || url[/\Ahttps:\/\//] || url.empty? 
          end
-         params[:instagram] = array[0]
-         params[:website] = array[1]
+         params[:instagram] = array[0] if array[0]
+         params[:website] = array[1] if array[1]
      end
       
 end
