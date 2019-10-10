@@ -22,3 +22,6 @@ Confirm:
 - [ ] Limited logic in controllers
 - [ ] Views use helper methods if appropriate
 - [ ] Views use partials if appropriate
+options_for_select((2019..1970).to_a)
+
+((Date.today.year)..1970)
