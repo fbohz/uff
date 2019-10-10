@@ -1,8 +1,7 @@
 class ArtistsController < ApplicationController
     before_action :set_artist, only: [:show, :edit, :update, :destroy]
-
-    # after_validation :add_http_protocol
-
+    before_action :authenticate_user!, only: [:new, :edit]
+    
     def index
     end 
 
