@@ -1,7 +1,9 @@
 <div class="container">
-<h2 class="title is-2"> Edit <%= @location.city %> Name </h2>
+<h2 class="title is-2"> Editing Name for: <%= @location.city %> </h2>
  <%= render 'notice/errors_full_messages', model: @location %>
   <div class="content">
         <%= render 'form', location: @location %>
-    </div>
+             <p class="is-size-7 is-italic"> Editing a city is limited to name and under certain circumstances. <%= link_to "Add new location", new_location_path  %> if this is what you intended.  </p>
+    </div><br>
+
 </div>
