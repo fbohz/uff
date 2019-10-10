@@ -8,14 +8,22 @@
 
    <div class="field">
     <div class="control">
-    <%= f.label :country %>
-    <%= f.text_field :country, required: true %>
+    
+     <% if @request && @request.include?("edit")%>
+      <fieldset disabled>
+        <%= f.label :country %>
+        <%= f.text_field :country, required: true, readonly: true %>
+      </fieldset> 
+     <% else %>
+     <%= f.label :country %>
+      <%= f.text_field :country, required: true %>
+      <% end %>
      </div>
     </div>
 
   <!-- continent is added after validated with countries gem see e.g. in model --> 
 
     <div class="buttons">
-    <%= f.submit "Add", { class: 'button is-danger' } %>
+    <%= f.submit "Submit", { class: 'button is-danger' } %>
     </div><br>
 <% end %>

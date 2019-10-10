@@ -1,5 +1,6 @@
 <div class="container">
 <h2 class="title is-2"> New Location </h2>
+ <%= render 'notice/errors_full_messages', model: @location %>
   <div class="content">
         <%= render 'form', location: @location %>
     </div>

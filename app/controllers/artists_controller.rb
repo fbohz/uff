@@ -15,11 +15,9 @@ class ArtistsController < ApplicationController
     end 
 
     def create
-        # raise params.inspect
         check_params = artist_params
         add_http_protocol(check_params)
         @artist = Artist.new(check_params)
-        binding.pry
         if @artist.save
             redirect_to artist_path(@artist)
         else
@@ -32,8 +30,6 @@ class ArtistsController < ApplicationController
     end 
 
     def update
-
-        # @update_artist = Artist.new(artist_params)
         check_params = artist_params
         add_http_protocol(check_params)
 
