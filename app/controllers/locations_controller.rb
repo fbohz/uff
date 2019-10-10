@@ -30,7 +30,7 @@ class LocationsController < ApplicationController
     end 
 
     def edit
-        @request = request.env["REQUEST_PATH"]
+        @read = true
 
     end 
 

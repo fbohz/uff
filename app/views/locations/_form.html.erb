@@ -9,12 +9,7 @@
    <div class="field">
     <div class="control">
     
-     <% if @request && @request.include?("edit")%>
-      <fieldset disabled>
-        <%= f.label :country %>
-        <%= f.text_field :country, required: true, readonly: true %>
-      </fieldset> 
-     <% else %>
+     <% if !@read%>
      <%= f.label :country %>
       <%= f.text_field :country, required: true %>
       <% end %>
