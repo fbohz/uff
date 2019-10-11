@@ -7,8 +7,8 @@ class WallsController < ApplicationController
 
     def new
         @wall = Wall.new
-        @wall.artists.build #need to check this and modify
-        @wall.artists.build 
+        # @wall.artists.build 
+        1.times{@wall.artists.build} #will add x times as needed.
     end
 
     def show
