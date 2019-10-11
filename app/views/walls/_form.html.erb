@@ -3,6 +3,7 @@
     <div class="field">
     <h4 class="title is-4"> Wall Artist(s):</h5>
         <%= f.text_field :artist_name, class: "control", placeholder: "Search for an artist", required: true %> 
+        
             <p class="is-italic is-size-7">No luck? <%=  link_to "Add Artist", new_artist_path %> </p>
      </div><br>
     <!-- need add new artist button, maybe break up this form? --> 
@@ -16,9 +17,7 @@
         <!-- above mockup only --> 
     <div class="field">
     <h4 class="title is-4">Wall Location:</h5>
-        <%= f.text_field :location_name, class: "control", placeholder: "Search city", required: true%>
-        <!-- above mockup only --> 
-        <%= f.text_field :location_name, list: "locations_autocomplete" %>
+        <%= f.text_field :location_name, list: "locations_autocomplete", placeholder: "Search city", required: true, class: "control" %>
         <datalist id="locations_autocomplete">
             <% Location.all.each do |l| %>
             <option value="<%= l.city %>">

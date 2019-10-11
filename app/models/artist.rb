@@ -14,6 +14,11 @@ class Artist < ApplicationRecord
     accepts_nested_attributes_for :walls, :locations
     has_one_attached :image
 
+
+    def artist_name
+        self.name
+    end
+
 end
 
 

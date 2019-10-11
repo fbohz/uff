@@ -21,9 +21,22 @@ class Wall < ApplicationRecord
 
   end 
 
+  def location_name=(name)
+    self.location = Location.find_by(name: name)
+  end
+
   def location_name
     self.location ? self.location.city : nil
   end 
+
+  # def artists_names=(name)
+  #   self.artists << name
+  #   binding.pry
+  # end
+
+  # def location_name
+  #   self.location ? self.location.city : nil
+  # end 
 
   private
 
