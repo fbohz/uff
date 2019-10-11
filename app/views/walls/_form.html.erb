@@ -16,7 +16,15 @@
         <!-- above mockup only --> 
     <div class="field">
     <h4 class="title is-4">Wall Location:</h5>
-        <%= f.text_field :wall_location, class: "control", placeholder: "Search city", required: true%>
+        <%= f.text_field :location_name, class: "control", placeholder: "Search city", required: true%>
+        <!-- above mockup only --> 
+        <%= f.text_field :location_name, list: "locations_autocomplete" %>
+        <datalist id="locations_autocomplete">
+            <% Location.all.each do |l| %>
+            <option value="<%= l.city %>">
+            <% end %>
+        </datalist>
+
             <p class="is-italic is-size-7">City not found? <%=  link_to "Add New", new_location_path %> </p>        
     </div><br>
 

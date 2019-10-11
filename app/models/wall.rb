@@ -21,6 +21,10 @@ class Wall < ApplicationRecord
 
   end 
 
+  def location_name
+    self.location ? self.location.city : nil
+  end 
+
   private
 
   def find_or_create_artist
