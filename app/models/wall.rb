@@ -10,15 +10,22 @@ class Wall < ApplicationRecord
   has_many_attached :images
 
   #custom nested build try. Do binding.pry to see what is self.
-  # def artist_attributes=(artist_attr)
-  #   self.artist = Artist.find_or_create_by(name: artist_attr[:name])
+  # def artists_attributes=(artist_name)
+  #   self.artist = Artist.find_by(artist_name)
   #   self.artist.update(artist_attr)
   # end
 
-  before_save :find_or_create_artist
+  def categories_attributes=(category_attributes)
+    category_attributes.values.each do |category_attribute|
+      category = Category.find_or_create_by(category_attribute)
+      self.categories << category
+    end
+end
+
+
+  before_save :find_or_create_artist, :find_or_create_tag
 
   def bravo_count
-
   end 
 
   def location_name=(name)
@@ -46,6 +53,10 @@ class Wall < ApplicationRecord
     end
   end
 
-
+  def find_or_create_tag
+    self.tags = self.tags.collect do |tag|
+      Tag.find_or_create_by(name: tag.name)
+    end
+  end    
 
 end
