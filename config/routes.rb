@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   resources :locations
 
+  get '/new_artist_partial' => 'walls#new_artist_partial'
+
+
   # resources :walls do
   #   resources :artists, only: [:show, :index]
   # end

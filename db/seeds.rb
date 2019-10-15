@@ -29,9 +29,9 @@ pez = Artist.new(
     website: "https://el-pez.com/"
     )
 
-t1 = Tag.create(name: "fantasy")
-t2 = Tag.create(name: "abstract")
-t3 = Tag.create(name: "urban")
+t1 = Tag.new(name: "fantasy")
+t2 = Tag.new(name: "abstract")
+t3 = Tag.new(name: "urban")
 
 candelaria1.artists += [rodez, pez]
 candelaria1.tags += [t1, t2, t3]
