@@ -5,6 +5,7 @@ $(document).ready(function(){
   let counter2 = 0;
   // let output = "<option value='TEST'>";
   let output = "";
+  $.getJSON('/static.json', function(json) {
   $('#addArtist').click(function(){
     // event.preventDefault(); 
     counter += 1;
@@ -13,7 +14,7 @@ $(document).ready(function(){
     idAttribute = "wall_artists_attributes_0_artist_name".replace("0", counter);
     nameAttribute = "wall[artists_attributes][0][artist_name]".replace("0", counter);
 
-    $.getJSON('/static.json', function(json) {
+
 
       
       $.each(json.data, function(key, value) {
@@ -21,7 +22,7 @@ $(document).ready(function(){
           console.log("<option value="+ "'" + value.name + "'" + ">");
       });
       // debugger;
-    });
+  
 
 
     $('#fieldAdd').append(
@@ -46,7 +47,7 @@ $(document).ready(function(){
 
   });
   
-
+});
 
   $('#tagAdd').click(function(){
     // event.preventDefault(); 
