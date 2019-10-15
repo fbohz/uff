@@ -12,15 +12,6 @@
 //   });
 
 
-//   $('#newArtist').html("<%=escape_javascript render 'artists/form', artist: @artist %>");
-
-//   $(document).ready(function() {
-//     $("#addArtist").click(function(){
-//         $("#fieldAdd").append("<br><b>Appended text</b>");
-//       });
-//   });
-
-
 // function getPublicJson(){
 //     return $.getJSON('./public/static.json');
 // }
