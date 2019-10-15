@@ -12,10 +12,10 @@ $(document).ready(function(){
     nameAttribute = "wall[artists_attributes][0][artist_name]".replace("0", counter);
 
     $('#fieldAdd').append(
-      `<div class='field addedSet' id='artist_autocomplete_add'>
-        <input class='form-control' type='text' name='${nameAttribute}' id='${idAttribute}'>
+      `<div class='field addedSet column is-one-quarter' id='artist_autocomplete_add'>
+        <br><input class='control' type='text' name='${nameAttribute}' list="artist_list" placeholder="Search artist" required>
 
-        <datalist id="${idAttribute}">
+        <datalist id="artist_list">
         <% Artist.all.each do |a| %>
         <option value="<%= a.artist_name %>">
         <% end %>
@@ -25,12 +25,9 @@ $(document).ready(function(){
           <span class='input-group-text'>
             <button type='button' class='removeX close'> ×</button>
           </span>
-    
-
-      </div>
+        </div>
       </div>`
 
-      
     );
   });
   
@@ -46,8 +43,8 @@ $(document).ready(function(){
 
     // append input field with unique attributes in div 
     $('#fieldAdd2').append(
-      `<div class='addedSet'>
-        <input class='form-control' type='text' name='${nameAttribute}' id='${idAttribute}'>
+      `<div class='field addedSet column is-one-quarter'>
+        <br><input class='control' type='text' name='${nameAttribute}' id='${idAttribute}' required>
 
         <div class='input-group-append'>
           <span class='input-group-text'>

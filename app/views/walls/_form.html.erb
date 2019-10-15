@@ -2,7 +2,6 @@
 
     <div class="field artistSet">
     <h4 class="title is-4"> Wall Artist(s):</h5>
-         
      <%= f.fields_for :artists, @artist_counter.times{@wall.artists.build} do |a_fields| %>
          <%= a_fields.text_field :artist_name, list: "artist_autocomplete", placeholder: "Search artist", required: true, class: "control" %>
         <datalist id="artist_autocomplete">
@@ -10,34 +9,24 @@
             <option value="<%= a.artist_name %>">
             <% end %>
         </datalist>
-           <!-- this is the 'x' 
-         <span class="input-group-text">
-        <button type="button" class="removeX close"> &times;</button> --> 
       </span>
      <% end %>
-     </div>
-   <!-- button supposes to add new refactor to link_to--> 
+     </div> 
    <!-- MAYBE: refactor this so instead it adds walls.artists.build to form and that's all.--> 
-     <div class="field dynamicField" id="fieldAdd">
-
-
-    <button type="button" class="button is-small is-danger addArtist close" id="addArtist"> + Artist </button>
-
-
+    <div class="field dynamicField" >
+        <button type="button" class="button is-small is-danger addArtist close" id="addArtist"> + Artist </button><br>
+        <div id="fieldAdd" class="columns is-multiline is-mobile"></div><br>
     </div>
 
      
     <small class="is-italic is-size-7">No luck? <%=  link_to "Add New Artist", new_artist_path %> </small>
     <br>
- 
-
-        <!-- this activates if 2 artists change according. GENERATE BELOW AFTER ADD ARTIST BUTTON IS CLICKED --> 
          <div class="field">
          <div class="control">
             <%= f.label :collaboration_details %>
             <%= f.text_area :collaboration_details, cols: 50, rows: 3  %>
          </div></div>    
-        <!-- above mockup only --> 
+        <!-- above mockup only MAYBE implement after saved in edit --> 
     <div class="field">
     <h4 class="title is-4">Wall Location:</h5>
         <%= f.text_field :location_name, list: "locations_autocomplete", placeholder: "Search city", required: true, class: "control" %>
@@ -46,7 +35,6 @@
             <option value="<%= l.city %>">
             <% end %>
         </datalist>
-
             <p class="is-italic is-size-7">City not found? <%=  link_to "Add New", new_location_path %> </p>        
     </div><br>
 
@@ -81,15 +69,16 @@
          <% end %>
     </div>
     
-    <div  id="fieldAdd2" class="field dynamicField">
+    <div class="field dynamicField">
         <button type="button" class="button is-small is-danger" id="tagAdd"> + Tags </button>
-
-  
-        <!-- need add new tag button, maybe break up this form into partial? --> 
+        <br>
+        <div id="fieldAdd2" class="columns is-multiline is-mobile"></div><br>
     </div>
     <div class="buttons">
     <%= f.submit "Add Wall", { class: 'button is-danger' } %>
     </div><br>
+
+     <!-- below mockup only --> 
 
     <div id="#newArtist"></div>
     <%= link_to "test", new_artist_partial_path, :remote => true %>
