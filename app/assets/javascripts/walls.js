@@ -1,7 +1,7 @@
 // // The below code is for  Form Page, /#/new and /#/edit
 
 $(document).ready(function(){
-   let counter = 0;
+  let counter = 0;
   let counter2 = 0;
   $('#addArtist').click(function(){
     // event.preventDefault(); 
@@ -34,12 +34,7 @@ $(document).ready(function(){
     );
   });
   
-  // x click
-  $(".input-group-append").on('click', '.removeX', function(){
-    // 'this' is the 'x' button
-    // .remove() takes removes it from the DOM
-    $(this).closest('.addedSet').remove(); 
-  });
+
 
   $('#tagAdd').click(function(){
     // event.preventDefault(); 
@@ -51,7 +46,7 @@ $(document).ready(function(){
 
     // append input field with unique attributes in div 
     $('#fieldAdd2').append(
-      `<div class='field addedSet'>
+      `<div class='addedSet'>
         <input class='form-control' type='text' name='${nameAttribute}' id='${idAttribute}'>
 
         <div class='input-group-append'>
@@ -66,28 +61,15 @@ $(document).ready(function(){
       
     );
   });
+
+       // 'x' button function
+    $("div.dynamicField").on('click', '.removeX', function(){
+      // 'closest' goes up thru the DOM, looking for the first ancestor with the div of class dynamicField
+      // .remove() takes removes it from the DOM
+      $(this).closest('.addedSet').remove(); 
+    });
 });
 
-  // $(document).ready(function() {
-  //   let counter = 1;
-  //   $("#addArtist").click(function(){
-  //     counter += 1; 
-  //     $( "#fieldAdd" ).append( 
-  //             `<div class='field artistSet'>
-  //               <input class='form-control' type='text' name='${nameAttributeIngredient}' id='${idAttributeIngredient}'>
-  //               <div class='input-group-append'>
-  //                 <span class='input-group-text'>
-  //                   <button type='button' class='removeIngredient close'> ×</button>
-  //                 </span>
-  //               </div>
-  //             </div>`
-            
-      
-      
-      
-  //     );
-  //     });
-  // });
 
-
+  
 
