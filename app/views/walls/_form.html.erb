@@ -2,6 +2,8 @@
 
     <div class="field artistSet">
     <h4 class="title is-4"> Wall Artist(s):</h5>
+      <small class="is-italic is-size-7">Artist not found? <%=  link_to "Add New Artist", new_artist_path %> </small>
+    <br>
      <%= f.fields_for :artists, @artist_counter.times{@wall.artists.build} do |a_fields| %>
          <%= a_fields.text_field :artist_name, list: "artist_autocomplete", placeholder: "Search artist", required: true, class: "control" %>
         <datalist id="artist_autocomplete">
@@ -18,9 +20,6 @@
         <div id="fieldAdd" class="columns is-multiline is-mobile"></div><br>
     </div>
 
-     
-    <small class="is-italic is-size-7">No luck? <%=  link_to "Add New Artist", new_artist_path %> </small>
-    <br>
          <div class="field">
          <div class="control">
             <%= f.label :collaboration_details %>
