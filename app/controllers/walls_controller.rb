@@ -1,6 +1,6 @@
 class WallsController < ApplicationController
     before_action :set_wall, only: [:show, :edit, :update, :destroy]
-
+    # before_action :update_artist_names, only: [:new, :edit] 
 
     def index
     end 

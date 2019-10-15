@@ -1,4 +1,5 @@
 require 'uri'
+require 'json'
 
 class Artist < ApplicationRecord
     validates_presence_of :name, :hometown, :bio
@@ -14,10 +15,27 @@ class Artist < ApplicationRecord
     accepts_nested_attributes_for :walls, :locations
     has_one_attached :image
 
+    def self.get_artist_names
+        path = "./public/static.json"
+        File.delete(path) if File.exist?(path)
+        File.new(path, "w+")
+        
+        hash = {}
+        # hash = JSON.load(File.read(path))
+        self.all.each do |a|
+            hash["data"] ||= []
+            hash["data"] << { "name" => a.name }
+        end
+        # binding.pry
+
+        File.write(path, JSON.dump(hash))
+
+    end
 
     def artist_name
         self.name
     end
+    
 
 end
 

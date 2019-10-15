@@ -3,6 +3,7 @@
 $(document).ready(function(){
   let counter = 0;
   let counter2 = 0;
+  let output = "<option value='<%= a.artist_name %>'>";
   $('#addArtist').click(function(){
     // event.preventDefault(); 
     counter += 1;
@@ -11,14 +12,21 @@ $(document).ready(function(){
     idAttribute = "wall_artists_attributes_0_artist_name".replace("0", counter);
     nameAttribute = "wall[artists_attributes][0][artist_name]".replace("0", counter);
 
+    $.getJSON('/static.json', function(json) {
+
+      
+      $.each(json.data, function(key, value) {
+          output += '<option value=' + value.name + '>';
+      });
+    });
+
+
     $('#fieldAdd').append(
       `<div class='field addedSet column is-one-quarter' id='artist_autocomplete_add'>
         <br><input class='control' type='text' name='${nameAttribute}' list="artist_list" placeholder="Search artist" required>
 
         <datalist id="artist_list">
-        <% Artist.all.each do |a| %>
-        <option value="<%= a.artist_name %>">
-        <% end %>
+        ${output}
         </datalist>
 
         <div class='input-group-append'>
@@ -29,6 +37,10 @@ $(document).ready(function(){
       </div>`
 
     );
+
+
+
+
   });
   
 

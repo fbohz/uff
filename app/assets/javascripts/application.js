@@ -19,3 +19,8 @@
 //         $("#fieldAdd").append("<br><b>Appended text</b>");
 //       });
 //   });
+
+
+// function getPublicJson(){
+//     return $.getJSON('./public/static.json');
+// }
