@@ -59,7 +59,6 @@ $(document).ready(function(){
             <button type='button' class='removeX close'> ×</button>
           </span>
     
-
       </div>
       </div>`
 
@@ -73,6 +72,11 @@ $(document).ready(function(){
       // .remove() takes removes it from the DOM
       $(this).closest('.addedSet').remove(); 
       counter -= 1
+    });
+
+      // same needs REFACTOR b/c it has repetition only diff counter
+    $("div.dynamicField2").on('click', '.removeX', function(){
+      $(this).closest('.addedSet').remove(); 
       counter2 -= 1
     });
 });
