@@ -67,6 +67,8 @@ $(document).ready(function(){
       // 'closest' goes up thru the DOM, looking for the first ancestor with the div of class dynamicField
       // .remove() takes removes it from the DOM
       $(this).closest('.addedSet').remove(); 
+      counter -= 1
+      counter2 -= 1
     });
 });
 
