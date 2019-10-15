@@ -64,8 +64,8 @@
 
     <div class="field">
         <%= f.fields_for :tags do |t_fields| %>
-        <%= t_fields.label :tag %>
-        <%= t_fields.text_field :name, class: "control", required: true %> 
+        <%= t_fields.label :tags %>
+        <%= t_fields.text_field :name, class: "control", placeholder: "tag name", required: true %> 
          <% end %>
     </div>
     

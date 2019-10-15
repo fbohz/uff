@@ -44,7 +44,7 @@ $(document).ready(function(){
     // append input field with unique attributes in div 
     $('#fieldAdd2').append(
       `<div class='field addedSet column is-one-quarter'>
-        <br><input class='control' type='text' name='${nameAttribute}' id='${idAttribute}' required>
+        <br><input class='control' type='text' name='${nameAttribute}' id='${idAttribute}' placeholder='tag name' required>
 
         <div class='input-group-append'>
           <span class='input-group-text'>
