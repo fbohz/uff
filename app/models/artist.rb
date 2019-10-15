@@ -27,7 +27,6 @@ class Artist < ApplicationRecord
             hash["data"] << { "name" => a.name }
         end
         # binding.pry
-
         File.write(path, JSON.dump(hash))
 
     end

@@ -3,7 +3,8 @@
 $(document).ready(function(){
   let counter = 0;
   let counter2 = 0;
-  let output = "<option value='<%= a.artist_name %>'>";
+  // let output = "<option value='TEST'>";
+  let output = "";
   $('#addArtist').click(function(){
     // event.preventDefault(); 
     counter += 1;
@@ -16,8 +17,10 @@ $(document).ready(function(){
 
       
       $.each(json.data, function(key, value) {
-          output += '<option value=' + value.name + '>';
+          output += "<option value="+ "'" + value.name + "'" + ">";
+          console.log("<option value="+ "'" + value.name + "'" + ">");
       });
+      // debugger;
     });
 
 

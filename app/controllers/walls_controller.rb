@@ -1,6 +1,6 @@
 class WallsController < ApplicationController
     before_action :set_wall, only: [:show, :edit, :update, :destroy]
-    # before_action :update_artist_names, only: [:new, :edit] 
+    before_action :update_artist_names_json, only: [:new, :edit] 
 
     def index
     end 
@@ -58,6 +58,8 @@ class WallsController < ApplicationController
         @wall = Wall.find(params[:id])
     end
 
-
+    def update_artist_names_json
+        Artist.get_artist_names
+    end 
 
 end
