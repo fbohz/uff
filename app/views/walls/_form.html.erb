@@ -10,9 +10,9 @@
             <option value="<%= a.artist_name %>">
             <% end %>
         </datalist>
-           <!-- this is the 'x' --> 
+           <!-- this is the 'x' 
          <span class="input-group-text">
-        <button type="button" class="removeArtist close"> &times;</button>
+        <button type="button" class="removeX close"> &times;</button> --> 
       </span>
      <% end %>
      </div>
@@ -75,14 +75,17 @@
          </div></div>         
 
     <div class="field">
-        <%= f.label :tags %>
-        <%= f.text_field :wall_tags, class: "control", required: true %> 
+        <%= f.fields_for :tags do |t_fields| %>
+        <%= t_fields.label :tag %>
+        <%= t_fields.text_field :name, class: "control", required: true %> 
+         <% end %>
     </div>
-        <div class="field">
-        <a href="javascript:;" id="addNewTag" class='button is-small is-danger'>+ Tag</a>
+    
+    <div class="field" id="fieldAdd2">
+        <button type="button" class="button is-small is-danger" id="tagAdd"> + Tags </button>
 
   
-        <!-- need add new tag button, maybe break up this form? --> 
+        <!-- need add new tag button, maybe break up this form into partial? --> 
     </div>
     <div class="buttons">
     <%= f.submit "Add Wall", { class: 'button is-danger' } %>

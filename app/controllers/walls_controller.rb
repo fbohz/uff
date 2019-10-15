@@ -8,10 +8,11 @@ class WallsController < ApplicationController
     def new
         @wall = Wall.new
         @artist = Artist.new
+        @tag = Tag.new
         @artist_counter = 1
+        1.times{@wall.tags.build} 
         # @wall.artists.build 
         # 1.times{@wall.artists.build} #will add x times as needed.
-        1.times{@wall.tags.build}
     end
 
     def show
@@ -49,7 +50,7 @@ class WallsController < ApplicationController
             :location_name, 
             :collaboration_details,
             artist_names: [],
-            wall_tags: [], 
+            tags_attributes: [:id, :name], 
             artists_attributes: [:id, :name, :bio, :hometown, :instagram, :website, :artist_name]
          ) 
     end 
