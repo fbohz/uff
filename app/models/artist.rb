@@ -19,16 +19,12 @@ class Artist < ApplicationRecord
         path = "./public/static.json"
         File.delete(path) if File.exist?(path)
         File.new(path, "w+")
-        
         hash = {}
-        # hash = JSON.load(File.read(path))
         self.all.each do |a|
             hash["data"] ||= []
             hash["data"] << { "name" => a.name }
         end
-        # binding.pry
         File.write(path, JSON.dump(hash))
-
     end
 
     def artist_name
