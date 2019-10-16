@@ -19,8 +19,8 @@ $(document).on('turbolinks:load', function() {
       counter += 1;
 
       // Replace 0 with counter 
-      idAttribute = "wall_artists_attributes_0_artist_name".replace("0", counter);
-      nameAttribute = "wall[artists_attributes][0][artist_name]".replace("0", counter);
+      idAttribute = "wall_artists_attributes_0_name".replace("0", counter);
+      nameAttribute = "wall[artists_attributes][0][name]".replace("0", counter);
 
       $('#fieldAdd').append(
         `<div class='field addedSet column is-one-quarter' id='artist_autocomplete_add'>

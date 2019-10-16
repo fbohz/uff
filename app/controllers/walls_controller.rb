@@ -17,7 +17,8 @@ class WallsController < ApplicationController
 
     def create
         raise wall_params.inspect
-
+        # @tag = Tag.find_or_create_by(check_params)
+        @location = Location.find_by(wall_params[:wall]["location_name"])
         #remember set 'active' attribute to TRUE.
 
         # wall_params[:wall]["artists_attributes"]

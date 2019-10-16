@@ -6,7 +6,7 @@ class Wall < ApplicationRecord
   has_many :artists, through: :artist_walls
   has_many :tags
   has_many :bravos
-  accepts_nested_attributes_for :artists, :tags, :artist_walls
+  accepts_nested_attributes_for :artist_walls
   has_many_attached :images
 
   #custom nested build try. Do binding.pry to see what is self.
@@ -15,20 +15,19 @@ class Wall < ApplicationRecord
   #   self.artist.update(artist_attr)
   # end
 
-  def check_attributes(nested_attributes, model)
-    model_name = model.capitalize
-    collection = model.downcase
-
-    nested_attributes.values.each do |nested_attribute|
-      instance = model_name.find_or_create_by(nested_attribute)
-      self.collection << instance
-
+def artists_attributes=(artists_attributes)
+    artists_attributes.values.each do |artist_attribute|
+      artist = Artist.find_by(artist_attribute["name"])
+      self.artists << artist
     end
-
-    binding.pry
-
 end
 
+def tags_attributes=(tags_attributes)
+  tags_attributes.values.each do |tag_attribute|
+    tag = Tag.find_or_initialize_by(tag_attribute["name"])
+    self.tags << tag
+  end
+end
 
 
 
