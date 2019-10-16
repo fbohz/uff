@@ -7,10 +7,8 @@ class WallsController < ApplicationController
 
     def new
         @wall = Wall.new
-        @artist = Artist.new
-        @tag = Tag.new
-        @artist_counter = 1
         1.times{@wall.tags.build} 
+        1.times{@wall.artists.build} 
     end
 
     def show
@@ -19,6 +17,7 @@ class WallsController < ApplicationController
 
     def create
         raise wall_params.inspect
+
         #remember set 'active' attribute to TRUE.
 
         # wall_params[:wall]["artists_attributes"]

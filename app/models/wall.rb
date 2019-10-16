@@ -22,13 +22,17 @@ class Wall < ApplicationRecord
     nested_attributes.values.each do |nested_attribute|
       instance = model_name.find_or_create_by(nested_attribute)
       self.collection << instance
+
     end
+
+    binding.pry
+
 end
 
 
 
 
-  before_save :find_or_create_artist, :find_or_create_tag
+  # before_save :find_or_create_artist, :find_or_create_tag
 
   def bravo_count
   end 
