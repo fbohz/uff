@@ -8,7 +8,6 @@ class WallsController < ApplicationController
     def new
         @wall = Wall.new
         1.times{@wall.tags.build} 
-        1.times{@wall.artists.build} 
     end
 
     def show
@@ -22,7 +21,7 @@ class WallsController < ApplicationController
         @wall = Wall.new(active: true, date_done: date, description: wall_params["description"], address: wall_params["address"])
 
         @wall.location = check_location
-        @wall.add_errors("Location '#{wall_params["location_name"]}' not found, if you meant to add new location click link below") unless @wall.location
+        @wall.add_errors("Location '#{wall_params["location_name"]}' not found! If you meant to add new location click Add New below") unless @wall.location
         
         @wall.artists_attributes=wall_params["artists_attributes"]
         @wall.tags_attributes=wall_params["tags_attributes"]
@@ -51,6 +50,8 @@ class WallsController < ApplicationController
     end 
 
     def update
+        # collaboration_details
+        # ArtistWall.find_by(id: 
     end 
 
     def destroy

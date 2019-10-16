@@ -29,7 +29,7 @@ def artists_attributes=(artists_attributes)
       if artist
         self.artists << artist
       else
-        self.add_errors("Artist not found, if you meant to add new artist click link below")
+        self.add_errors("Artist named '#{artist_attribute["name"]}' not found! If you meant to add new artist click Add New Artist below")
       end 
     end
 end

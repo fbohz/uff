@@ -4,7 +4,7 @@
     <h4 class="title is-4"> Wall Artist(s):</h5>
       <small class="is-italic is-size-7">Artist not found? <%=  link_to "Add New Artist", new_artist_path %> </small>
     <br>
-     <%= f.fields_for :artists do |a_fields| %>
+     <%= f.fields_for :artists, 1.times{@wall.artists.build} do |a_fields| %>
          <%= a_fields.text_field :name, list: "artist_autocomplete", placeholder: "Search artist", required: true, class: "control" %>
         <datalist id="artist_autocomplete">
             <% Artist.all.each do |a| %>
