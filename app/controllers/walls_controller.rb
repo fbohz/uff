@@ -11,15 +11,19 @@ class WallsController < ApplicationController
         @tag = Tag.new
         @artist_counter = 1
         1.times{@wall.tags.build} 
-        # @wall.artists.build 
-        # 1.times{@wall.artists.build} #will add x times as needed.
     end
 
     def show
+        raise @wall.inspect
     end 
 
     def create
-        raise params.inspect
+        raise wall_params.inspect
+        #remember set 'active' attribute to TRUE.
+
+        # wall_params[:wall]["artists_attributes"]
+
+        # ["artists_attributes", "collaboration_details", "location_name", "date_done", "address", "description", "tags_attributes"]
     end 
 
     def edit
