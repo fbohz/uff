@@ -17,11 +17,18 @@ class WallsController < ApplicationController
 
     def create
         raise wall_params.inspect
-        # @tag = Tag.find_or_create_by(check_params)
-        @location = Location.find_by(wall_params[:wall]["location_name"])
+
+        new_params = wall_params[:wall]
+        
+        @wall = Wall.new(active: true, date_done: new_params["date_done"], description: new_params["description"], address: new_params["address"])
+        
+        self.check_location
+        @wall.artists_attributes=new_params["artists_attributes"]
+        @wall.tags_attributes=new_params["tags_attributes"]
+        
         #remember set 'active' attribute to TRUE.
 
-        # @artists.errors[:base] << "not found"
+        
         # wall_params[:wall]["artists_attributes"]
 
         # ["artists_attributes", "collaboration_details", "location_name", "date_done", "address", "description", "tags_attributes"]
@@ -67,4 +74,13 @@ class WallsController < ApplicationController
         Artist.get_artist_names
     end 
 
+    def check_location
+        @location = Location.find_by(wall_params[:wall]["location_name"])
+
+            if @location
+                self.location = @location
+            else
+                self.errors[:base] << "Location not found, if you meant to add new location click link below"
+         end
+    end
 end
