@@ -22,18 +22,18 @@ class WallsController < ApplicationController
         @wall = Wall.new(active: true, date_done: date, description: wall_params["description"], address: wall_params["address"])
 
         @wall.location = check_location
-        @wall.add_errors("Location not found, if you meant to add new location click link below") unless @wall.location
+        @wall.add_errors("Location '#{wall_params["location_name"]}' not found, if you meant to add new location click link below") unless @wall.location
         
         @wall.artists_attributes=wall_params["artists_attributes"]
         @wall.tags_attributes=wall_params["tags_attributes"]
 
 
-        binding.pry
+        # binding.pry
         if @wall.save
             redirect_to wall_path(@wall)
         elsif !@wall.save && @wall.found_errors
             @wall.found_errors.each do |e|
-                self.errors[:base] << e
+                @wall.errors[:base] << e
             end
             render :new
         else 
