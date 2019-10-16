@@ -20,7 +20,7 @@ def add_errors(error)
 end
 
 def found_errors
-  @found_errors
+  @found_errors 
 end
 
 def artists_attributes=(artists_attributes)
@@ -36,7 +36,7 @@ end
 
 def tags_attributes=(tags_attributes)
   tags_attributes.values.each do |tag_attribute|
-    tag = Tag.find_or_initialize_by(name: tag_attribute["name"])
+    tag = Tag.find_or_initialize_by(name: tag_attribute["name"].downcase.strip.gsub(" ", ""))
     self.tags << tag
   end
 end

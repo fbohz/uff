@@ -17,14 +17,17 @@ class WallsController < ApplicationController
 
     def create
         # raise wall_params.inspect
+        @errors = []
         date = get_date
         @wall = Wall.new(active: true, date_done: date, description: wall_params["description"], address: wall_params["address"])
 
         @wall.location = check_location
+        @wall.add_errors("Location not found, if you meant to add new location click link below") unless @wall.location
         
         @wall.artists_attributes=wall_params["artists_attributes"]
         @wall.tags_attributes=wall_params["tags_attributes"]
-        
+
+
         binding.pry
         if @wall.save
             redirect_to wall_path(@wall)
@@ -85,14 +88,7 @@ class WallsController < ApplicationController
     end 
 
     def check_location
-        location = Location.find_by(city: wall_params["location_name"])
-
-        if location == nil
-            self.add_errors("Location not found, if you meant to add new location click link below")
-        else
-            location
-        end
-
+        Location.find_by(city: wall_params["location_name"])
     end
 
     def get_date
