@@ -12,30 +12,35 @@ class WallsController < ApplicationController
     end
 
     def show
-        raise @wall.inspect
+        # raise @wall.inspect
     end 
 
     def create
-        raise wall_params.inspect
+        # raise wall_params.inspect
+        date = get_date
+        @wall = Wall.new(active: true, date_done: date, description: wall_params["description"], address: wall_params["address"])
 
-        new_params = wall_params[:wall]
+        @wall.location = check_location
         
-        @wall = Wall.new(active: true, date_done: new_params["date_done"], description: new_params["description"], address: new_params["address"])
+        @wall.artists_attributes=wall_params["artists_attributes"]
+        @wall.tags_attributes=wall_params["tags_attributes"]
         
-        self.check_location
-        @wall.artists_attributes=new_params["artists_attributes"]
-        @wall.tags_attributes=new_params["tags_attributes"]
-        
+        binding.pry
         if @wall.save
             redirect_to wall_path(@wall)
-        else
+        elsif !@wall.save && @wall.found_errors
+            @wall.found_errors.each do |e|
+                self.errors[:base] << e
+            end
+            render :new
+        else 
             render :new
         end
 
         #remember set 'active' attribute to TRUE.
 
         # wall_params[:wall]["artists_attributes"]
-
+        # self.errors[:base] << "Artist not found, if you meant to add new artist click link below"
         # ["artists_attributes", "collaboration_details", "location_name", "date_done", "address", "description", "tags_attributes"]
     end 
 
@@ -80,12 +85,18 @@ class WallsController < ApplicationController
     end 
 
     def check_location
-        @location = Location.find_by(wall_params[:wall]["location_name"])
+        location = Location.find_by(city: wall_params["location_name"])
 
-            if @location
-                self.location = @location
-            else
-                self.errors[:base] << "Location not found, if you meant to add new location click link below"
-         end
+        if location == nil
+            self.add_errors("Location not found, if you meant to add new location click link below")
+        else
+            location
+        end
+
+    end
+
+    def get_date
+       year = wall_params["date_done"].to_i
+       Date.new(year) unless year == 0
     end
 end

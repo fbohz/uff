@@ -8,27 +8,35 @@ class Wall < ApplicationRecord
   has_many :bravos
   accepts_nested_attributes_for :artist_walls
   has_many_attached :images
-
   #custom nested build try. Do binding.pry to see what is self.
   # def artists_attributes=(artist_name)
   #   self.artist = Artist.find_by(artist_name)
   #   self.artist.update(artist_attr)
   # end
 
+def add_errors(error)
+  @found_errors ||= []
+  @found_errors << error
+end
+
+def found_errors
+  @found_errors
+end
+
 def artists_attributes=(artists_attributes)
     artists_attributes.values.each do |artist_attribute|
-      artist = Artist.find_by(artist_attribute["name"])
+      artist = Artist.find_by(name: artist_attribute["name"])
       if artist
         self.artists << artist
       else
-        self.errors[:base] << "Artist not found, if you meant to add new artist click link below"
+        self.add_errors("Artist not found, if you meant to add new artist click link below")
       end 
     end
 end
 
 def tags_attributes=(tags_attributes)
   tags_attributes.values.each do |tag_attribute|
-    tag = Tag.find_or_initialize_by(tag_attribute["name"])
+    tag = Tag.find_or_initialize_by(name: tag_attribute["name"])
     self.tags << tag
   end
 end
