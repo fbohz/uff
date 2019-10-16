@@ -17,8 +17,9 @@ class LocationsController < ApplicationController
         # raise params.inspect
         check_params = location_params
         validate_country(check_params)
-        
-        @location = Location.new(check_params)
+
+        @location = Location.find_or_initialize_by(check_params)
+
         if @invalid || !@location.save 
             @location.errors[:base] << "Invalid country name, try again." unless !@invalid
             render :new
@@ -58,12 +59,21 @@ class LocationsController < ApplicationController
 
     def validate_country(params)
         
-        country_name = params[:country]
+        if params[:country].downcase == "england"
+            country_name = "United Kingdom"
+        else
+            country_name = params[:country]
+        end 
+
         validate = ISO3166::Country.find_country_by_name(country_name)
 
-        if validate
-           params[:country] = validate.name 
-           params[:continent] = validate.continent
+        case
+        when validate && validate.name == "United Kingdom of Great Britain and Northern Ireland"
+            params[:country] = "United Kingdom"
+            params[:continent] = validate.continent
+        when validate
+            params[:country] = validate.name 
+            params[:continent] = validate.continent
         else
            @invalid = true
         end 
