@@ -26,9 +26,14 @@ class WallsController < ApplicationController
         @wall.artists_attributes=new_params["artists_attributes"]
         @wall.tags_attributes=new_params["tags_attributes"]
         
+        if @wall.save
+            redirect_to wall_path(@wall)
+        else
+            render :new
+        end
+
         #remember set 'active' attribute to TRUE.
 
-        
         # wall_params[:wall]["artists_attributes"]
 
         # ["artists_attributes", "collaboration_details", "location_name", "date_done", "address", "description", "tags_attributes"]
