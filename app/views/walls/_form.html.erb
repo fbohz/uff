@@ -19,13 +19,13 @@
         <button type="button" class="button is-small is-danger addArtist close" id="addArtist"> + Artist </button><br>
         <div id="fieldAdd" class="columns is-multiline is-mobile"></div><br>
     </div>
-
+      <!-- need to MOVE this after create--> 
          <div class="field">
          <div class="control">
-            <%= f.label :collaboration_details %>
-            <%= f.text_area :collaboration_details, cols: 50, rows: 3  %>
+            <%= f.label :collaboration_details_mockup %>
+            <%= f.text_area :collaboration_details, cols: 50, rows: 3,  disabled: true %>
          </div></div>    
-        <!-- above mockup only MAYBE implement after saved in edit --> 
+        <!--  --> 
     <div class="field">
     <h4 class="title is-4">Wall Location:</h5>
         <%= f.text_field :location_name, list: "locations_autocomplete", placeholder: "Search city", required: true, class: "control" %>
