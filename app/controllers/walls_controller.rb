@@ -21,6 +21,7 @@ class WallsController < ApplicationController
         @location = Location.find_by(wall_params[:wall]["location_name"])
         #remember set 'active' attribute to TRUE.
 
+        # @artists.errors[:base] << "not found"
         # wall_params[:wall]["artists_attributes"]
 
         # ["artists_attributes", "collaboration_details", "location_name", "date_done", "address", "description", "tags_attributes"]

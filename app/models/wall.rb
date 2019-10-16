@@ -18,7 +18,11 @@ class Wall < ApplicationRecord
 def artists_attributes=(artists_attributes)
     artists_attributes.values.each do |artist_attribute|
       artist = Artist.find_by(artist_attribute["name"])
-      self.artists << artist
+      if artist
+        self.artists << artist
+      else
+        self.errors[:base] << "Artist not found, if you meant to add new artist click link below"
+      end 
     end
 end
 
