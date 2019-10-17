@@ -2,10 +2,10 @@ class Wall < ApplicationRecord
   validates_presence_of :description
   validates :description, length: { maximum: 500 }
   belongs_to :location
-  has_many :artist_walls
+  has_many :artist_walls, dependent: :destroy
   has_many :artists, through: :artist_walls
-  has_many :tags
-  has_many :bravos
+  has_many :tags, dependent: :destroy
+  has_many :bravos, dependent: :destroy
   accepts_nested_attributes_for :artist_walls
   has_many_attached :images
   #custom nested build try. Do binding.pry to see what is self.

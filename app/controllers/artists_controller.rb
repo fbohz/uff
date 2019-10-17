@@ -3,6 +3,8 @@ class ArtistsController < ApplicationController
     before_action :authenticate_user!, only: [:new, :edit]
 
     def index
+        # for has_many you can do an includes here if necessary e.g. @post = Post.includes(:category)
+
     end 
 
     def new
