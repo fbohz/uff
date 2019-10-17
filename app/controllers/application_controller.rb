@@ -7,7 +7,8 @@ class ApplicationController < ActionController::Base
       if !@title
         path = request.env["REQUEST_PATH"].titleize.split("/")
         string = path[1].singularize if path[1]
-        string.prepend("#{path[2] if path[2]} ")
+        string.prepend("#{path[2] if path[2] && path[2].to_i == 0} ")
+        string += " #{path[3] if path[3]}"
         @title = "Uff!" + " - #{string if string}"
       end 
     end
