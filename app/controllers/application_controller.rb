@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 
     before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :get_title 
+    skip_before_action :get_title, only: [:not_found]
 
     def get_title
       if !@title
@@ -12,6 +13,11 @@ class ApplicationController < ActionController::Base
         string.prepend("#{path[4].singularize if path[4]}")
         @title = "Uff!" + " - #{string if string}"
       end 
+    end
+
+    def not_found
+      # raise ActionController::RoutingError.new('Not Found')
+      render 'notice/404', :status => '404'
     end
 
     protected

@@ -73,7 +73,8 @@ class WallsController < ApplicationController
     end 
 
     def destroy
-
+        flash[:notice] = "Wall deleted!"
+        redirect_to root_path
     end
 
 
