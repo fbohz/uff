@@ -22,3 +22,6 @@ Confirm:
 - [ ] Limited logic in controllers
 - [ ] Views use helper methods if appropriate
 - [x] Views use partials if appropriate
+
+Personal:
+- [ ] Views are clean and good UI.

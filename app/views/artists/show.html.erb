@@ -1,1 +1,7 @@
 <h1> <%= @artist.name %> </h1>
+
+
+<p><%= @artist.name %>  Walls:</p>
+<% @artist.walls.each do |a| %>
+  <div><%= link_to "#{a.description[0..30]...} in #{a.location.city}", artist_walls_path(a) %></div>
+<% end %>

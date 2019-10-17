@@ -3,6 +3,18 @@ class WallsController < ApplicationController
     before_action :update_artist_names_json, only: [:new, :edit] 
 
     def index
+        case
+        when params[:artist_id]
+            @artist = Author.find_by_id(params[:artist_id])
+            if @artist
+                @walls = @artist.walls
+            else
+                flash[:alert] = "Artist not found."
+                redirect_to artists_path 
+            end
+        else
+            @walls = Wall.all
+        end
     end 
 
     def new
@@ -55,6 +67,7 @@ class WallsController < ApplicationController
     end 
 
     def destroy
+
     end
 
 
