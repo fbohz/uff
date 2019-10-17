@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
         string = path[1].singularize if path[1]
         string.prepend("#{path[2] if path[2] && path[2].to_i == 0} ")
         string += " #{path[3] if path[3]}"
+        string.prepend("#{path[4].singularize if path[4]}")
         @title = "Uff!" + " - #{string if string}"
       end 
     end
