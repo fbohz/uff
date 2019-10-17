@@ -5,7 +5,7 @@ class WallsController < ApplicationController
     def index
         case
         when params[:artist_id]
-            @artist = Author.find_by_id(params[:artist_id])
+            @artist = Artist.find_by_id(params[:artist_id])
             if @artist
                 @walls = @artist.walls
             else
@@ -18,8 +18,22 @@ class WallsController < ApplicationController
     end 
 
     def new
-        @wall = Wall.new
+        @wall = Wall.new                      
         1.times{@wall.tags.build} 
+        case
+        when params[:artist_id]
+            @artist = Artist.find_by_id(params[:artist_id])
+            if @artist
+                @wall = @artist.walls.build 
+                1.times{@wall.tags.build} 
+            else
+                flash[:alert] = "Artist not found."
+                redirect_to artists_path 
+            end
+        else
+            @wall = Wall.new                      
+            1.times{@wall.tags.build} 
+        end                        
     end
 
     def show
