@@ -6,7 +6,7 @@
 
 <p>Artist(s) Involved:</p>
 <% @wall.artists.each do |a| %>
-  <div><%= a.name %></div>
+  <div><%= link_to a.name, artist_path(a) %></div>
 <% end %>
 
 <p>Tags:</p>

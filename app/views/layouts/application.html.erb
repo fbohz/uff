@@ -35,16 +35,19 @@
     </nav>
 
 
-    <!-- devise alert -->
-    <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
+    <!-- devise alert and for flash messages -->
+     <% if alert || notice %>
+      <br><div class="notification">
+       <div id="error_explanation"> 
+          <p class="has-text-success"><%= "#{notice if notice}" %></p>
+          <p class="love"><%= "#{alert if alert}"  %></p>
+      </div></div>
     <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
-    <!-- content -->
+  
+    <!-- content below -->
     <%= yield %>
     <!-- footer -->
+
     <footer class="footer">
       <div class="content has-text-centered">
         <p>

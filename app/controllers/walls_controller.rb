@@ -27,7 +27,6 @@ class WallsController < ApplicationController
     end 
 
     def create
-        # raise wall_params.inspect
         @errors = []
         date = get_date
         @wall = Wall.new(active: true, date_done: date, description: wall_params["description"], address: wall_params["address"])
@@ -38,9 +37,8 @@ class WallsController < ApplicationController
         @wall.artists_attributes=wall_params["artists_attributes"]
         @wall.tags_attributes=wall_params["tags_attributes"]
 
-
-        # binding.pry
         if @wall.save
+            flash[:notice] = "New Wall Successfuly Added!"
             redirect_to wall_path(@wall)
         elsif !@wall.save && @wall.found_errors
             @wall.found_errors.each do |e|
@@ -50,12 +48,6 @@ class WallsController < ApplicationController
         else 
             render :new
         end
-
-        #remember set 'active' attribute to TRUE.
-
-        # wall_params[:wall]["artists_attributes"]
-        # self.errors[:base] << "Artist not found, if you meant to add new artist click link below"
-        # ["artists_attributes", "collaboration_details", "location_name", "date_done", "address", "description", "tags_attributes"]
     end 
 
     def edit
