@@ -42,7 +42,11 @@
         <div class="field">
          <div class="control">
             <%= f.label "year done"%>
-            <%= f.select :date_done, (Date.today.year).downto(1970), include_blank: true  %>
+              <% if @wall.date_done && @wall.date_done.year %>
+                <%= f.select :date_done, (Date.today.year).downto(1970), :selected => @wall.date_done.year, include_blank: true  %>
+            <%else%>
+                <%= f.select :date_done, (Date.today.year).downto(1970), include_blank: true  %>
+            <%end%>
          </div></div>
          <div class="field">
          <div class="control">
