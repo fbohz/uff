@@ -66,9 +66,15 @@ class WallsController < ApplicationController
     end 
 
     def update
-        # collaboration_details
-        # ArtistWall.find_by(id: 
-        flash[:notice] = "Wall updated!"
+        raise wall_params.inspect
+
+        if @wall.update(wall_params)
+            flash[:notice] = "Wall updated!"
+            redirect_to @wall
+          else
+            render :edit
+          end
+    
     end 
 
     def destroy
