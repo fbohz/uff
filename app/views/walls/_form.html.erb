@@ -3,8 +3,8 @@
   <div class="field artistSet">
     <h4 class="title is-4"> Wall Artist(s):</h5>
     <% if @artist %>
-        <fieldset disabled>
-            <input list="artist_autocomplete" required="required" class="control" type="text" name="wall[artists_attributes][0][name]" id="wall_artists_attributes_0_name" value=<%="#{@artist.name}"%> >
+        <fieldset>
+            <input type="text" required="required" class="control" type="text" name="wall[artists_attributes][0][name]" id="wall_artists_attributes_0_name" value=<%="#{@artist.name}"%> readonly="readonly">
          </fieldset>
     <% else %>
         <%= f.fields_for :artists do |a_fields| %>
@@ -17,7 +17,7 @@
         </span>
         <% end %>
     <% end %> <br>
-         <small class="is-italic is-size-7">Artist not found? <%=  link_to "Add New Artist", new_artist_path %> </small>
+         <small class="is-italic is-size-7">If artist not found. <%=  link_to "Add New Artist", new_artist_path %> </small>
      </div> 
 
     <div class="field dynamicField" >
