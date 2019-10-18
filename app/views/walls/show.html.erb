@@ -1,6 +1,7 @@
 <h2> <%= @wall.location.city %> </h2>
 
 <p> <%= @wall.description %> </p>
+<p> <%= @wall.date_done.year if @wall.date_done %> </p>
 
 <p>Artist(s) Involved:</p>
 <% @wall.artists.each do |a| %>

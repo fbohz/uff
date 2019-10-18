@@ -40,18 +40,18 @@ class WallsController < ApplicationController
     end 
 
     def create
-        @wall = Wall.new(active: true, date_done: wall_params["date_done"], description: wall_params["description"], address: wall_params["address"], artists_attributes: wall_params["artists_attributes"], tags_attributes: wall_params["tags_attributes"])
+        @wall = Wall.new(active: true, date_done: @date, description: wall_params["description"], address: wall_params["address"], artists_attributes: wall_params["artists_attributes"], tags_attributes: wall_params["tags_attributes"])
 
         @wall.check_location(wall_params["location_name"])
 
-        if @wall.save
-            flash[:notice] = "New Wall Successfuly Added!"
-            redirect_to wall_path(@wall)
-        elsif !@wall.save && @wall.found_errors
+        if @wall.found_errors
             @wall.found_errors.each do |e|
                 @wall.errors[:base] << e
             end
             render :new
+        elsif @wall.save
+            flash[:notice] = "New Wall Successfuly Added!"
+            redirect_to wall_path(@wall)
         else 
             render :new
         end
@@ -109,7 +109,7 @@ class WallsController < ApplicationController
     end 
 
     def get_date
-       year = wall_params["date_done"].to_i
-       wall_params["date_done"] = Date.new(year) unless year == 0
+       get_data = wall_params["date_done"].to_i
+       @date = Date.new(get_data) unless get_data == 0
     end
 end
