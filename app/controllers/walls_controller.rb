@@ -70,6 +70,7 @@ class WallsController < ApplicationController
     def update
         # collaboration_details
         # ArtistWall.find_by(id: 
+        flash[:notice] = "Wall updated!"
     end 
 
     def destroy
@@ -87,7 +88,6 @@ class WallsController < ApplicationController
     private
 
     def wall_params
-        #NEED TO COMPLETE AND INCLUDE NESTED FORMS ATTRIBUTES TOO don't forget nested :id too, 
         params.require(:wall).permit(
             :date_done, 
             :address, 
