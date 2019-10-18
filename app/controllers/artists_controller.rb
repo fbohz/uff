@@ -53,7 +53,7 @@ class ArtistsController < ApplicationController
     end 
 
     def set_artist
-        @artist = Artist.find(params[:id])
+        @artist = Artist.find(params[:id]) 
     end
 
     def add_http_protocol(params)
