@@ -36,7 +36,6 @@ class WallsController < ApplicationController
     end
 
     def show
-        # raise @wall.inspect
     end 
 
     def create

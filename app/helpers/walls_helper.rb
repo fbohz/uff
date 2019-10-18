@@ -15,5 +15,9 @@ module WallsHelper
          end
     end
 
-
+    def add_contr_details(wall)
+        if wall.artists.length > 1
+            content_tag(:button, "+ Artists Contribution Info", class: "addContr button is-small is-primary is-inverted")
+        end
+    end
 end

@@ -6,6 +6,7 @@
 <% @wall.artists.each do |a| %>
   <div><%= link_to a.name, artist_path(a) %></div>
 <% end %>
+<%= add_contr_details(@wall)%>
 
 <p>Tags:</p>
 <% @wall.tags.each do |t| %>
@@ -13,3 +14,4 @@
 <% end %>
 
 <h2> Image: TBD </h2>
+
