@@ -4,7 +4,8 @@
     <h4 class="title is-4"> Wall Artist(s):</h5>
     <% if @artist %>
         <fieldset>
-            <input type="text" required="required" class="control" type="text" name="wall[artists_attributes][0][name]" id="wall_artists_attributes_0_name" value=<%="#{@artist.name}"%> readonly="readonly">
+        
+            <input type="text" required="required" class="control" type="text" name="wall[artists_attributes][0][name]" id="wall_artists_attributes_0_name" value="<%=@artist.name%>" readonly="readonly">
          </fieldset>
     <% else %>
         <%= f.fields_for :artists do |a_fields| %>

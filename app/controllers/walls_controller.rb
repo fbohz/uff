@@ -1,6 +1,7 @@
 class WallsController < ApplicationController
     before_action :set_wall, only: [:show, :edit, :update, :destroy]
     before_action :update_artist_names_json, only: [:new, :edit] 
+    before_action :get_date, only: [:create, :update]
 
     def index
         case
@@ -39,15 +40,9 @@ class WallsController < ApplicationController
     end 
 
     def create
-        @errors = []
-        date = get_date
-        @wall = Wall.new(active: true, date_done: date, description: wall_params["description"], address: wall_params["address"])
+        @wall = Wall.new(active: true, date_done: wall_params["date_done"], description: wall_params["description"], address: wall_params["address"], artists_attributes: wall_params["artists_attributes"], tags_attributes: wall_params["tags_attributes"])
 
-        @wall.location = check_location
-        @wall.add_errors("Location '#{wall_params["location_name"]}' not found! If you meant to add new location click Add New below") unless @wall.location
-        
-        @wall.artists_attributes=wall_params["artists_attributes"]
-        @wall.tags_attributes=wall_params["tags_attributes"]
+        @wall.check_location(wall_params["location_name"])
 
         if @wall.save
             flash[:notice] = "New Wall Successfuly Added!"
@@ -113,12 +108,8 @@ class WallsController < ApplicationController
         Artist.get_artist_names
     end 
 
-    def check_location
-        Location.find_by(city: wall_params["location_name"])
-    end
-
     def get_date
        year = wall_params["date_done"].to_i
-       Date.new(year) unless year == 0
+       wall_params["date_done"] = Date.new(year) unless year == 0
     end
 end
