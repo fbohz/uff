@@ -4,7 +4,7 @@ class ArtistsController < ApplicationController
 
     def index
         # for has_many you can do an includes here if necessary e.g. @post = Post.includes(:category)
-
+        @artists = Artist.all
     end 
 
     def new
@@ -53,7 +53,7 @@ class ArtistsController < ApplicationController
     end 
 
     def set_artist
-        @artist = Artist.find(params[:id]) 
+        @artist = Artist.find(params[:id])
     end
 
     def add_http_protocol(params)

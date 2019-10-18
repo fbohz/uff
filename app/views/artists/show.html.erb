@@ -1,7 +1,10 @@
+<div class="field">
 <h1> <%= @artist.name %> </h1>
+<h1> <%= @artist.hometown %> </h1>
+<p> <%= @artist.bio %> </p>
+</div>
 
+<div class="field">
+  <%= link_to "Walls Done by #{@artist.name}", artist_walls_path(@artist), class: "button is-medium is-warning" %>
+</div><br>
 
-<p><%= @artist.name %>  Walls:</p>
-<% @artist.walls.each do |a| %>
-  <div><%= link_to "#{a.description[0..30]...} in #{a.location.city}", artist_walls_path(a) %></div>
-<% end %>

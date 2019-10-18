@@ -1,3 +1,5 @@
-<%= index_title @wall, @artist if @artist %>
+<%= index_title @artist if @artist %>
 
-
+<% @artist.walls.each do |a| %>
+  <div><%= link_to "#{a.description[0..30]...} in #{a.location.city}", wall_path(a) %></div>
+<% end %>

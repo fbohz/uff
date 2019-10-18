@@ -94,6 +94,7 @@ class WallsController < ApplicationController
             :description, 
             :image, 
             :location_name, 
+            :artist_id,
             artist_walls_attributes: [:collaboration_details],
             tags_attributes: [:id, :name], 
             artists_attributes: [:id, :name, :bio, :hometown, :instagram, :website, :artist_name]
