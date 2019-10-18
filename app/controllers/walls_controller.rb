@@ -18,8 +18,6 @@ class WallsController < ApplicationController
     end 
 
     def new
-        @wall = Wall.new                      
-        1.times{@wall.tags.build} 
         case
         when params[:artist_id]
             @artist = Artist.find_by_id(params[:artist_id])
@@ -33,6 +31,7 @@ class WallsController < ApplicationController
         else
             @wall = Wall.new                      
             1.times{@wall.tags.build} 
+            1.times{@wall.artists.build} 
         end                        
     end
 
@@ -41,6 +40,7 @@ class WallsController < ApplicationController
     end 
 
     def create
+        # raise wall_params.inspect
         @errors = []
         date = get_date
         @wall = Wall.new(active: true, date_done: date, description: wall_params["description"], address: wall_params["address"])

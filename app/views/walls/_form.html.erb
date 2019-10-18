@@ -1,20 +1,25 @@
 <%= form_with model: wall, local:true do |f| %>
 
-    <div class="field artistSet">
+  <div class="field artistSet">
     <h4 class="title is-4"> Wall Artist(s):</h5>
-      <small class="is-italic is-size-7">Artist not found? <%=  link_to "Add New Artist", new_artist_path %> </small>
-    <br>
-     <%= f.fields_for :artists, 1.times{@wall.artists.build} do |a_fields| %>
-         <%= a_fields.text_field :name, list: "artist_autocomplete", placeholder: "Search artist", required: true, class: "control" %>
-        <datalist id="artist_autocomplete">
-            <% Artist.all.each do |a| %>
-            <option value="<%= a.artist_name %>">
-            <% end %>
-        </datalist>
-      </span>
-     <% end %>
+    <% if @artist %>
+        <fieldset disabled>
+            <input list="artist_autocomplete" required="required" class="control" type="text" name="wall[artists_attributes][0][name]" id="wall_artists_attributes_0_name" value=<%="#{@artist.name}"%> >
+         </fieldset>
+    <% else %>
+        <%= f.fields_for :artists do |a_fields| %>
+            <%= a_fields.text_field :name, list: "artist_autocomplete", placeholder: "Search artist", required: true, class: "control" %>
+            <datalist id="artist_autocomplete">
+                <% Artist.all.each do |a| %>
+                <option value="<%= a.artist_name %>">
+                <% end %>
+            </datalist>
+        </span>
+        <% end %>
+    <% end %> <br>
+         <small class="is-italic is-size-7">Artist not found? <%=  link_to "Add New Artist", new_artist_path %> </small>
      </div> 
-   <!-- MAYBE: refactor this so instead it adds walls.artists.build to form and that's all.--> 
+
     <div class="field dynamicField" >
         <button type="button" class="button is-small is-danger addArtist close" id="addArtist"> + Artist </button><br>
         <div id="fieldAdd" class="columns is-multiline is-1-mobile"></div><br>
@@ -55,7 +60,7 @@
             <%= f.text_area :description, cols: 50, rows: 6, required: true  %>
          </div></div>
         <div class="field">
-         <!-- need implement add file later--> 
+         <!-- need IMPLEMENT ADD FILE later--> 
          <div class="control">
             <%= f.label :image %>
             <%= f.file_field :image %>
