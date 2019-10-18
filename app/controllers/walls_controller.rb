@@ -40,7 +40,6 @@ class WallsController < ApplicationController
     end 
 
     def create
-        # raise wall_params.inspect
         @errors = []
         date = get_date
         @wall = Wall.new(active: true, date_done: date, description: wall_params["description"], address: wall_params["address"])
