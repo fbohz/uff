@@ -21,7 +21,7 @@ module WallsHelper
         if wall.artists.length > 1 && !colab_details
             html << content_tag(:button, "+ Edit Contribution Info", class: "addContr button is-small is-primary is-inverted")
         elsif colab_details
-            html << content_tag(:p, "Collaboration Details:")
+            html << "<h6 class='title is-6'> Collaboration Details: </h6>"
             html << "<div id='colabDet'>#{colab_details} </div>"
             html << "<button class='addContr button is-small is-primary is-inverted'>+ Edit Contribution Info</button>"
 

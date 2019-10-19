@@ -3,9 +3,9 @@
 <p> <%= @wall.description %> </p>
 <p> <%= @wall.date_done.year if @wall.date_done %> </p>
 
-<p>Artist(s) Involved:</p>
+<h4 class="title is-4">Artist(s) Involved</h4>
 <!-- helper in WallsHelper--> 
-<div><%= link_artist(@wall) %></div>
+<div class="content"><%= link_artist(@wall) %></div>
 
 <!-- for ArtistWall cont details uses helper--> 
 <div class="content"><%= add_contr_details(@wall)%></div>
@@ -15,9 +15,9 @@
   </div>
 <% end %>
 
-<p>Tags:</p>
+<h4 class="title is-4">Tags</h4>
 <div><%= tag_list(@wall) %></div>
 
-<h2> Image: TBD </h2>
+<br><h2> Image: TBD </h2>
 
 <div><%= button_to "Edit Wall", edit_wall_path(@wall), :method => "get", class: "button is-small is-danger" %></div>
