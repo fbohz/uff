@@ -37,6 +37,7 @@ class WallsController < ApplicationController
     end
 
     def show
+        @artist_wall = ArtistWall.find(params[:id])
     end 
 
     def create

@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   resources :locations
 
+  resources :artist_walls, only: [:update]
+
   get '*unmatched_route', to: 'application#not_found'
 
 end

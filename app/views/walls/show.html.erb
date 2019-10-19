@@ -7,7 +7,13 @@
 <!-- helper in WallsHelper--> 
 <div><%= link_artist(@wall) %></div>
 
-<%= add_contr_details(@wall)%>
+<!-- for ArtistWall cont details uses helper--> 
+<div class="content"><%= add_contr_details(@wall)%></div>
+<%= form_with scope: :artist_wall, url: artist_wall_path(@artist_wall), method: :patch, local:true do |f| %>
+<div id="contFields">
+
+  </div>
+<% end %>
 
 <p>Tags:</p>
 <div><%= tag_list(@wall) %></div>

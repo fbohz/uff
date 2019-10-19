@@ -79,6 +79,32 @@ $(document).on('turbolinks:load', function() {
         $(this).closest('.addedSet').remove(); 
       });
 
+
+      $('.addContr').click(function(){
+
+        if (jQuery('.colabFields').hasClass('clicked')) {
+          $('.colabFields').closest('.clicked').remove(); 
+          $(".addContr").html('+ Artists Contribution Info');
+         }
+         else
+         {
+         // append input field with unique attributes in div 
+         $('#contFields').append(
+          `<div class="control colabFields">
+          <label for="artist_wall_collaboration_details">Collaboration details</label> <br>
+          <textarea cols="50" rows="6" placeholder="Add Any Collaboration Details" name="artist_wall[collaboration_details]" id="artist_wall_collaboration_details"></textarea>
+          <input type="submit" name="commit" value="Submit" class="button is-small is-primary" data-disable-with="Submit"> </div>
+          `
+         );
+         $('.colabFields').addClass('clicked');
+         $(".addContr").html('- Artists Contribution Info');
+        }
+
+          
+          
+       
+       });
+
   });
 
 });

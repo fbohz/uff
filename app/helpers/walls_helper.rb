@@ -19,11 +19,13 @@ module WallsHelper
         html = ''
         colab_details = ArtistWall.find_by_id(wall.id).collaboration_details
         if wall.artists.length > 1 && !colab_details
-            content_tag(:button, "+ Artists Contribution Info", class: "addContr button is-small is-primary is-inverted")
+            html << content_tag(:button, "+ Artists Contribution Info", class: "addContr button is-small is-primary is-inverted")
         elsif colab_details
-            text_area_tag('collaboration_details', content = colab_details )
+            html << content_tag(:p, "Collaboration Details:")
+            html << text_area_tag('collaboration_details', content = colab_details, rows: 4, cols: 50, class: "control", readonly: true)
 
         end
+        html.html_safe
     end
 
     def link_artist(wall)
