@@ -4,9 +4,8 @@ class ArtistWallsController < ApplicationController
 
 
     def update
-        # raise artist_wall_params.inspect
-        binding.pry
-        if @artist_wall.update(artist_wall_params)
+        if @artist_wall.update(collaboration_details: artist_wall_params["collaboration_details"])
+         
             flash[:notice] = "Collaboration Details Updated!"
             redirect_to wall_path(params[:id])
         else
