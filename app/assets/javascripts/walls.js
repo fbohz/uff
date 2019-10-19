@@ -13,16 +13,15 @@ $(document).on('turbolinks:load', function() {
       });
     // debugger;
     });
-        // create date object
-    let date = new Date();
 
-    // get number of milliseconds since midnight Jan 1, 1970, and use it for ingredients key 
-    let mSec = date.getMilliseconds();
 
     $('#addArtist').click(function(){
-      // event.preventDefault(); 
+     // create date object
+    let date = new Date();
 
-      // Replace 0 with counter 
+    // get number of milliseconds
+    let mSec = date.getMilliseconds();
+
       idAttribute = "wall_artists_attributes_0_name".replace("0", mSec);
       nameAttribute = "wall[artists_attributes][0][name]".replace("0", mSec);
 
@@ -46,7 +45,11 @@ $(document).on('turbolinks:load', function() {
   });
 
     $('#tagAdd').click(function(){
-      // event.preventDefault(); 
+     // create date object
+     let date = new Date();
+
+     // get number of milliseconds
+     let mSec = date.getMilliseconds();
 
       // Replace 0 with counter 
       idAttribute = "wall_tags_attributes_0_name".replace("0", mSec);
