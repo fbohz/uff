@@ -20,4 +20,14 @@ module WallsHelper
             content_tag(:button, "+ Artists Contribution Info", class: "addContr button is-small is-primary is-inverted")
         end
     end
+
+    def link_artist(wall)
+        if wall.artists.blank?
+            content_tag(:div, "Wall Unclaimed. Edit Wall to Add Artist")
+        else 
+            wall.artists.each do |a|
+                html << (link_to a.name, artist_path(a)) 
+        end
+     end
+    end 
 end

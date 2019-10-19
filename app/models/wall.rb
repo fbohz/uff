@@ -19,17 +19,18 @@ class Wall < ApplicationRecord
   end
 
   def artists_attributes=(artists_attributes)
-      
+      self.artists.clear
       artists_attributes.values.each do |artist_attribute|
-        artist = Artist.find_by(name: artist_attribute["name"])
+        binding.pry
+        artist = Artist.find_by_id(artist_attribute["id"])
         if artist
           self.artists << artist 
         else
           self.add_errors("Artist named '#{artist_attribute["name"]}' not found! If you meant to add new artist click Add New Artist below")
         end 
       end
-      self.artists = self.artists.uniq 
-      binding.pry
+      # self.artists = self.artists.uniq 
+      # binding.pry
   end
 
   def tags_attributes=(tags_attributes)

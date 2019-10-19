@@ -13,14 +13,18 @@ $(document).on('turbolinks:load', function() {
       });
     // debugger;
     });
+        // create date object
+    let date = new Date();
+
+    // get number of milliseconds since midnight Jan 1, 1970, and use it for ingredients key 
+    let mSec = date.getTime();
 
     $('#addArtist').click(function(){
       // event.preventDefault(); 
-      counter += 1;
 
       // Replace 0 with counter 
-      idAttribute = "wall_artists_attributes_0_name".replace("0", counter);
-      nameAttribute = "wall[artists_attributes][0][name]".replace("0", counter);
+      idAttribute = "wall_artists_attributes_0_name".replace("0", mSec);
+      nameAttribute = "wall[artists_attributes][0][name]".replace("0", mSec);
 
       $('#fieldAdd').append(
         `<div class='field addedSet column is-one-quarter' id='artist_autocomplete_add'>
@@ -43,11 +47,10 @@ $(document).on('turbolinks:load', function() {
 
     $('#tagAdd').click(function(){
       // event.preventDefault(); 
-      counter2 += 1;
 
       // Replace 0 with counter 
-      idAttribute = "wall_tags_attributes_0_name".replace("0", counter2);
-      nameAttribute = "wall[tags_attributes][0][name]".replace("0", counter2);
+      idAttribute = "wall_tags_attributes_0_name".replace("0", mSec);
+      nameAttribute = "wall[tags_attributes][0][name]".replace("0", mSec);
 
       // append input field with unique attributes in div 
       $('#fieldAdd2').append(
@@ -71,17 +74,7 @@ $(document).on('turbolinks:load', function() {
         // 'closest' goes up thru the DOM, looking for the first ancestor with the div of class dynamicField
         // .remove() takes removes it from the DOM
         $(this).closest('.addedSet').remove(); 
-        counter -= 1
       });
-
-        // same needs REFACTOR b/c it has repetition only diff counter
-      $("div.dynamicField2").on('click', '.removeX', function(){
-        $(this).closest('.addedSet').remove(); 
-        counter2 -= 1
-      });
-
-
-
 
   });
 

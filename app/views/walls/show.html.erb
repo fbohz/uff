@@ -4,9 +4,8 @@
 <p> <%= @wall.date_done.year if @wall.date_done %> </p>
 
 <p>Artist(s) Involved:</p>
-<% @wall.artists.each do |a| %>
-  <div><%= link_to a.name, artist_path(a) %></div>
-<% end %>
+<%= link_artist(@wall) %>
+
 <%= add_contr_details(@wall)%>
 
 <p>Tags:</p>
