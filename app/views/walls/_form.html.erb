@@ -69,11 +69,15 @@
             <%= f.file_field :image %>
          </div></div>         
 
-    <div class="field">
-        <%= f.fields_for :tags do |t_fields| %>
+    <div class="field dynamicField">
+      <%= f.fields_for :tags do |t_fields| %>
+         <div class="addedSet">
         <%= t_fields.label :tags %>
         <%= t_fields.text_field :name, class: "control", placeholder: "tag name", required: true %> 
-         <% end %>
+         <span class="input-group-text">	
+            <button type="button" class="removeX close"> x</button> 
+        </span></div>
+        <% end %>
     </div>
     
     <div class="field dynamicField">

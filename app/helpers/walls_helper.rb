@@ -28,6 +28,7 @@ module WallsHelper
         else 
             wall.artists.each do |a|
                 html << link_to(a.name, artist_path(a)) 
+                html << "</br>"
             end
         end
         html.html_safe

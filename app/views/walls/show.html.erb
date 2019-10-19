@@ -4,6 +4,7 @@
 <p> <%= @wall.date_done.year if @wall.date_done %> </p>
 
 <p>Artist(s) Involved:</p>
+<!-- helper in WallsHelper--> 
 <%= link_artist(@wall) %>
 
 <%= add_contr_details(@wall)%>
