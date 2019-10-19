@@ -9,6 +9,14 @@ class Wall < ApplicationRecord
   accepts_nested_attributes_for :artist_walls
   has_many_attached :images
 
+  def self.latest_walls
+    where("created_at >=?", Time.zone.today.beginning_of_day)
+  end 
+
+  def self.old_walls
+    where("created_at <?", Time.zone.today.beginning_of_day).limit(4)
+  end 
+
   def add_errors(error)
     @found_errors ||= []
     @found_errors << error

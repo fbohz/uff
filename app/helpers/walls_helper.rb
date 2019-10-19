@@ -17,7 +17,7 @@ module WallsHelper
 
     def add_contr_details(wall)
         html = ''
-        colab_details = ArtistWall.find_by_id(wall.id).collaboration_details
+        colab_details = ArtistWall.find_by(wall_id: wall.id).collaboration_details
         if wall.artists.length > 1 && !colab_details
             html << content_tag(:button, "+ Edit Contribution Info", class: "addContr button is-small is-primary is-inverted")
         elsif colab_details

@@ -37,7 +37,7 @@ class WallsController < ApplicationController
     end
 
     def show
-        @artist_wall = ArtistWall.find(params[:id])
+        @artist_wall = ArtistWall.find_by(wall_id: params[:id])
     end 
 
     def create
@@ -78,6 +78,7 @@ class WallsController < ApplicationController
     end 
 
     def destroy
+        #MAKE SURE WALL IS DELETED FROM BOTH ARTIST AND WALL ITSELF!
         flash[:notice] = "Wall deleted!"
         redirect_to root_path
     end

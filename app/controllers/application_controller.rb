@@ -4,9 +4,9 @@ class ApplicationController < ActionController::Base
     before_action :get_title
     skip_before_action :get_title, only: [:not_found]
 
-    rescue_from 'ActiveRecord::RecordNotFound' do
-      render 'notice/404', :status => '404'
-    end
+    # rescue_from 'ActiveRecord::RecordNotFound' do
+    #   render 'notice/404', :status => '404'
+    # end
 
     def get_title
       if !@title

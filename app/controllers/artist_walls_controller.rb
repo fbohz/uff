@@ -7,7 +7,8 @@ class ArtistWallsController < ApplicationController
         if @artist_wall.update(collaboration_details: artist_wall_params["collaboration_details"])
          
             flash[:notice] = "Collaboration Details Updated!"
-            redirect_to wall_path(params[:id])
+            # binding.pry
+            redirect_to wall_path(@artist_wall.wall_id)
         else
             render '/walls/show'
         end   
@@ -20,7 +21,7 @@ class ArtistWallsController < ApplicationController
     end 
 
     def set_artist_wall
-        @artist_wall = ArtistWall.find(params[:id])
+        @artist_wall = ArtistWall.find_by_id(params[:id])
     end
       
 end
