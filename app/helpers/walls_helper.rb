@@ -34,6 +34,16 @@ module WallsHelper
         html.html_safe
     end 
 
-    def tag_list
-    end
+    def tag_list(wall)
+        html = ''
+        if wall.tags.blank?
+            html << "No Tags. Edit Wall to Add Tags"
+        else 
+            wall.tags.each do |t|
+                html << "##{t.name}"
+                html << "</br>"
+            end
+        end
+        html.html_safe
+    end 
 end
