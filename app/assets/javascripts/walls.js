@@ -79,6 +79,10 @@ $(document).on('turbolinks:load', function() {
         $(this).closest('.addedSet').remove(); 
         counter2 -= 1
       });
+
+
+
+
   });
 
 });

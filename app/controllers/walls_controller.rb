@@ -61,9 +61,8 @@ class WallsController < ApplicationController
     end 
 
     def update
-        raise wall_params.inspect
-        @wall.build(date_done: @date, description: wall_params["description"], address: wall_params["address"], artists_attributes: wall_params["artists_attributes"], tags_attributes: wall_params["tags_attributes"])
-
+        # raise wall_params.inspect
+        
         @wall.check_location(wall_params["location_name"])
 
         if @wall.found_errors
@@ -71,7 +70,7 @@ class WallsController < ApplicationController
                 @wall.errors[:base] << e
             end
             render :new
-        elsif @wall.update
+        elsif @wall.update(date_done: @date, description: wall_params["description"], address: wall_params["address"], artists_attributes: wall_params["artists_attributes"], tags_attributes: wall_params["tags_attributes"])
             flash[:notice] = "Wall updated!"
             redirect_to @wall
         else 

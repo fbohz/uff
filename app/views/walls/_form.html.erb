@@ -1,25 +1,29 @@
 <%= form_with model: wall, local:true do |f| %>
 
-  <div class="field artistSet">
+  <div class="dynamicField" id="dynamicField">
     <h4 class="title is-4"> Wall Artist(s):</h5>
     <% if @artist %>
         <fieldset>
-        
-            <input type="text" required="required" class="control" type="text" name="wall[artists_attributes][0][name]" id="wall_artists_attributes_0_name" value="<%=@artist.name%>" readonly="readonly">
+             <!-- new Artist Wall Nested Route--> 
+            <input type="text" required="required" class="control addedSet" type="text" name="wall[artists_attributes][0][name]" id="wall_artists_attributes_0_name" value="<%=@artist.name%>" readonly="readonly">
          </fieldset>
     <% else %>
+    
         <%= f.fields_for :artists do |a_fields| %>
+        <div class="addedSet">
             <%= a_fields.text_field :name, list: "artist_autocomplete", placeholder: "Search artist", required: true, class: "control" %>
             <datalist id="artist_autocomplete">
                 <% Artist.all.each do |a| %>
                 <option value="<%= a.artist_name %>">
                 <% end %>
             </datalist>
-        </span>
+        <span class="input-group-text">	
+            <button type="button" class="removeX close"> x</button> 
+        </span></div>
         <% end %>
     <% end %> <br>
          <small class="is-italic is-size-7">If artist not found. <%=  link_to "Add New Artist", new_artist_path %> </small>
-     </div> 
+  </div> 
 
     <div class="field dynamicField" >
         <button type="button" class="button is-small is-danger addArtist close" id="addArtist"> + Artist </button><br>
@@ -78,6 +82,6 @@
         <div id="fieldAdd2" class="columns is-multiline is-1-mobile"></div><br>
     </div>
     <div class="buttons">
-    <%= f.submit "Add Wall", { class: 'button is-danger' } %>
+    <%= f.submit "Submit", { class: 'button is-danger' } %>
     </div><br>
 <% end %>
