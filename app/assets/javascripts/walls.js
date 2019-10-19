@@ -79,6 +79,7 @@ $(document).on('turbolinks:load', function() {
         $(this).closest('.addedSet').remove(); 
       });
 
+      let colabValue = $('#colabDet').text()
 
       $('.addContr').click(function(){
 
@@ -92,7 +93,7 @@ $(document).on('turbolinks:load', function() {
          $('#contFields').append(
           `<div class="control colabFields">
           <label for="artist_wall_collaboration_details">Collaboration details</label> <br>
-          <textarea cols="50" rows="6" placeholder="Add Any Collaboration Details" name="artist_wall[collaboration_details]" id="artist_wall_collaboration_details"></textarea>
+          <textarea cols="50" rows="6" placeholder="Add Any Collaboration Details" name="artist_wall[collaboration_details]" id="artist_wall_collaboration_details">${colabValue}</textarea>
           <input type="submit" name="commit" value="Submit" class="button is-small is-primary" data-disable-with="Submit"> </div>
           `
          );
