@@ -84,7 +84,7 @@ $(document).on('turbolinks:load', function() {
 
         if (jQuery('.colabFields').hasClass('clicked')) {
           $('.colabFields').closest('.clicked').remove(); 
-          $(".addContr").html('+ Artists Contribution Info');
+          $(".addContr").html('+ Edit Contribution Info');
          }
          else
          {
@@ -97,7 +97,7 @@ $(document).on('turbolinks:load', function() {
           `
          );
          $('.colabFields').addClass('clicked');
-         $(".addContr").html('- Artists Contribution Info');
+         $(".addContr").html('- Edit Contribution Info');
         }
 
           
