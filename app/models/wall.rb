@@ -21,8 +21,9 @@ class Wall < ApplicationRecord
   def artists_attributes=(artists_attributes)
       self.artists.clear
       artists_attributes.values.each do |artist_attribute|
-        binding.pry
-        artist = Artist.find_by_id(artist_attribute["id"])
+        
+        artist = Artist.where('id = ? or name = ?', artist_attribute["id"], artist_attribute["name"]).first
+
         if artist
           self.artists << artist 
         else

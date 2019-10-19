@@ -22,12 +22,14 @@ module WallsHelper
     end
 
     def link_artist(wall)
+        html = ''
         if wall.artists.blank?
             content_tag(:div, "Wall Unclaimed. Edit Wall to Add Artist")
         else 
             wall.artists.each do |a|
-                html << (link_to a.name, artist_path(a)) 
+                html << link_to(a.name, artist_path(a)) 
+            end
         end
-     end
+        html.html_safe
     end 
 end
