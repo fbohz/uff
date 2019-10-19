@@ -61,7 +61,6 @@ class WallsController < ApplicationController
     end 
 
     def update
-        # raise wall_params.inspect
         @wall.check_location(wall_params["location_name"])
 
         if @wall.found_errors
