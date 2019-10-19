@@ -17,7 +17,7 @@ $(document).on('turbolinks:load', function() {
     let date = new Date();
 
     // get number of milliseconds since midnight Jan 1, 1970, and use it for ingredients key 
-    let mSec = date.getTime();
+    let mSec = date.getMilliseconds();
 
     $('#addArtist').click(function(){
       // event.preventDefault(); 

@@ -33,4 +33,7 @@ module WallsHelper
         end
         html.html_safe
     end 
+
+    def tag_list
+    end
 end
