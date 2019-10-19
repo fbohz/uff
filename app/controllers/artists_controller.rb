@@ -36,6 +36,7 @@ class ArtistsController < ApplicationController
         add_http_protocol(check_params)
 
         if @artist.update(check_params)
+            flash[:notice] = "Artist updated!"
             redirect_to artist_path(@artist)
         else
             render :edit

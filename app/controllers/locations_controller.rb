@@ -37,6 +37,7 @@ class LocationsController < ApplicationController
 
     def update
         if @location.update(location_params)
+            flash[:notice] = "Location updated!"
             redirect_to location_path(@location)
         else
             render :edit
