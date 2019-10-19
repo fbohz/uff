@@ -20,7 +20,7 @@
                   </figure>
                 </div>
                 <div class="media-content">
-                  <p class="title is-4"><%= w.location.city%></p>
+                  <p class="title is-4"><%= link_to w.location.city, wall_path(w)%></p>
                   <p class="subtitle is-6">@johnsmith</p>
                 </div>
               </div>
@@ -29,7 +29,7 @@
                 <%= w.description.truncate(55)%> <a>@bulmaio</a>.
                 <a href="#">#css</a> <a href="#">#responsive</a>
                 <br>
-                <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                <time datetime=<%="#{w.date_done}"%>><%=w.date_done.year if w.date_done %></time>
               </div>
             </div>
           </div>

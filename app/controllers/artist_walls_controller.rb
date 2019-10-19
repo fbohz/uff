@@ -7,7 +7,6 @@ class ArtistWallsController < ApplicationController
         if @artist_wall.update(collaboration_details: artist_wall_params["collaboration_details"])
          
             flash[:notice] = "Collaboration Details Updated!"
-            # binding.pry
             redirect_to wall_path(@artist_wall.wall_id)
         else
             render '/walls/show'
