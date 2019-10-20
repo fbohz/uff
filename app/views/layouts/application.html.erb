@@ -27,6 +27,7 @@
           <span class='navbar-item'> Welcome <%= current_user.name %>! </span>
           <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-item' %> 
           <%= link_to 'Latest Artists', latest_artists_path, class: "navbar-item"%>
+          <%= link_to 'Add Wall', new_wall_path, class: "navbar-item"%>
           <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-item'  %>
         <% else %>
           <%= link_to 'Latest Artists', latest_artists_path, class: "navbar-item"%>
