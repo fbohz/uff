@@ -14,7 +14,7 @@ class LocationsController < ApplicationController
                 redirect_to locations_path
             end
         else    
-            @locations = Location.all
+            @locations = Location.all.order(:city)
             @count = @locations.length
         end 
     end 
