@@ -8,6 +8,8 @@ class Wall < ApplicationRecord
   has_many :bravos, dependent: :destroy
   accepts_nested_attributes_for :artist_walls
   has_many_attached :images
+  validates_length_of :artists, maximum: 4, message: "limit reached! Too many artists for a single wall (limit 4)"
+  validates_length_of :tags, maximum: 4, message: "only 4 tags per wall are allowed."
 
   def self.latest_walls
     order(created_at: :desc).limit(4)

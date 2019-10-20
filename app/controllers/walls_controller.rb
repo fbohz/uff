@@ -41,6 +41,7 @@ class WallsController < ApplicationController
     end 
 
     def create
+        # raise wall_params.inspect
         @wall = Wall.new(active: true, date_done: @date, description: wall_params["description"], address: wall_params["address"], artists_attributes: wall_params["artists_attributes"], tags_attributes: wall_params["tags_attributes"])
 
         @wall.check_location(wall_params["location_name"])
@@ -97,9 +98,9 @@ class WallsController < ApplicationController
             :date_done, 
             :address, 
             :description, 
-            :image, 
             :location_name, 
             :artist_id,
+            images: [], 
             artist_walls_attributes: [:collaboration_details],
             tags_attributes: [:id, :name], 
             artists_attributes: [:id, :name, :bio, :hometown, :instagram, :website, :artist_name]
