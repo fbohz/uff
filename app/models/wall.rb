@@ -10,6 +10,7 @@ class Wall < ApplicationRecord
   has_many_attached :images
   validates_length_of :artists, maximum: 4, message: "limit reached! Too many artists for a single wall (limit 4)"
   validates_length_of :tags, maximum: 4, message: "only 4 tags per wall are allowed."
+  validates_length_of :images, maximum: 4, message: "limit reached! Please upload up to four (4) images only."
 
   def self.latest_walls
     order(created_at: :desc).limit(4)

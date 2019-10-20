@@ -36,3 +36,6 @@ yarn-debug.log*
 
 # safeguards env variables
 *.env
+
+#google_cloud_keys
+/config/gce.json
