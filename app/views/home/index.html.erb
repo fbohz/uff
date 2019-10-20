@@ -3,39 +3,8 @@
     <div class="container">
 
     <h2 class="title is-2">Latest Walls</h2>
-      <div class="columns is-multiline is-1-mobile">
-        <% @latest_walls.each do |w|%>
-        <div class="field column is-one-quarter">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="media">
-                <div class="media-left">
-                  <figure class="image is-48x48">
-                    <img src="/img/pin.png" alt="Placeholder image">
-                  </figure>
-                </div>
-                <div class="media-content">
-                  <p class="title is-4"><%= link_to w.location.city, wall_path(w)%></p>
-                  <p class="subtitle is-6"><%= wall_artists_card(w)%></p>
-                </div>
-              </div>
+        <%= render '/walls/walls', model: @latest_walls %>
 
-              <div class="content">
-                <p><%= w.description.truncate(100)%> </p>
-                <%= check_tags(w)%>
-                <br>
-                <time datetime=<%="#{w.date_done}"%>><%=w.date_done.year if w.date_done %></time>
-              </div>
-            </div>
-          </div>
-        </div>
-        <% end %>
-      </div></div>
       <div class="field column is-one-quarter">
     <%= link_to "Discovered a wall recently?", new_wall_path, class: "button is-warning" %>
   </div><br>
