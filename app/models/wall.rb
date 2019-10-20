@@ -10,11 +10,12 @@ class Wall < ApplicationRecord
   has_many_attached :images
 
   def self.latest_walls
-    where("created_at >=?", Time.zone.today.beginning_of_day)
+    order(created_at: :desc).limit(4)
   end 
 
   def self.old_walls
-    where("created_at <?", Time.zone.today.beginning_of_day).limit(4)
+    #needs some refactor, not used at this point though.
+    where("created_at <?", Time.zone.today.beginning_of_day)
   end 
 
   def add_errors(error)

@@ -28,7 +28,7 @@ class Artist < ApplicationRecord
     end
 
     def self.latest_artists
-        where("created_at <?", Time.zone.today.beginning_of_day) || self.all.limit(4)
+        order(created_at: :desc).limit(4)
     end 
 
     def artist_name

@@ -47,14 +47,12 @@ class ArtistsController < ApplicationController
     end
 
     def latest_artists
-        @latest_artists = Artist.latest_artists.limit(4)
-        # binding.pry
+        @latest_artists = Artist.latest_artists
     end 
 
     private
 
     def artist_params
-       #NEED TO COMPLETE AND INCLUDE NESTED FORMS ATTRIBUTES TOO don't forget nested :id too, 
        params.require(:artist).permit(:name, :hometown, :instagram, :website, :bio, :image, :wall_id, :location_id) 
     end 
 
