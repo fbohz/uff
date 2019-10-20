@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :artist_walls, only: [:update]
 
+  get '/latest_artists', to: 'artists#latest_artists'
   get '*unmatched_route', to: 'application#not_found'
-
+  
 end

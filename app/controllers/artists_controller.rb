@@ -46,6 +46,11 @@ class ArtistsController < ApplicationController
     def destroy
     end
 
+    def latest_artists
+        @latest_artists = Artist.latest_artists.limit(4)
+        # binding.pry
+    end 
+
     private
 
     def artist_params

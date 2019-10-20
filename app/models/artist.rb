@@ -27,6 +27,10 @@ class Artist < ApplicationRecord
         File.write(path, JSON.dump(hash))
     end
 
+    def self.latest_artists
+        where("created_at <?", Time.zone.today.beginning_of_day) || self.all.limit(4)
+    end 
+
     def artist_name
         self.name
     end
