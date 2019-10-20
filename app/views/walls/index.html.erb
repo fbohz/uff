@@ -1,5 +1,9 @@
-<%= index_title @artist if @artist %>
+<h2 class="title is-2"><%= index_title @artist if @artist %> </h2>
 
-<% @walls.each do |a| %>
-  <div><%= link_to "#{a.description[0..30]...} in #{a.location.city}", wall_path(a) %></div>
-<% end %>
+  <section class="section">
+    <div class="container">
+        <%= render 'walls', model: @walls %>
+   </div>
+
+  </section>
+

@@ -1,10 +1,12 @@
 module WallsHelper
     def index_title(artist =nil)
+        html = ''
         if artist 
-            content_tag(:h1, "#{artist.name} Walls:")
+          html <<  "#{artist.name} Walls:"
         else
-            content_tag(:h1, "Latest Walls" )
+          html <<  "Latest Walls" 
         end 
+        html.html_safe
     end
 
     def new_wall_title(artist=nil)

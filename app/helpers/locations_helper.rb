@@ -7,7 +7,8 @@ module LocationsHelper
             html << link_to("Add New Wall", new_wall_path)
             html << " and select <b> #{l.city} </b>."
         else
-            html << "#{count} Wall(s) Added"
+            html << "#{count} Wall(s) Added <br>"
+            html << link_to("See Walls.", locations_walls_path(l))
         end     
         html.html_safe    
     end

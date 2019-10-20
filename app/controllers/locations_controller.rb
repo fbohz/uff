@@ -2,14 +2,25 @@ class LocationsController < ApplicationController
     before_action :set_location, only: [:show, :edit, :update, :destroy]
    
     def index
-        @locations = Location.all
-        @count = @locations.length
+        case
+        when params[:id]
+            location = Location.find_by_id(params[:id])
+            if location
+                @walls = location.walls
+                @city = location.city
+                render "location_walls"
+            else 
+                flash[:alert] = "Location not found"
+                redirect_to locations_path
+            end
+        else    
+            @locations = Location.all
+            @count = @locations.length
+        end 
     end 
 
     def new
         @location = Location.new
-        # 2.times{@artist.walls.build}
-        # @artist.walls.build
     end 
 
     def show
