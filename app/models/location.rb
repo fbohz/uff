@@ -4,4 +4,10 @@ class Location < ApplicationRecord
     has_many :walls
     has_many :artists, through: :walls
 
+
+    def city_walls_count(city_name)
+        city = Location.find_by(city: city_name)
+        city.walls.length
+    end
+
 end

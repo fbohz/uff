@@ -2,6 +2,8 @@ class LocationsController < ApplicationController
     before_action :set_location, only: [:show, :edit, :update, :destroy]
    
     def index
+        @locations = Location.all
+        @count = @locations.length
     end 
 
     def new
@@ -50,7 +52,6 @@ class LocationsController < ApplicationController
     private
 
     def location_params
-        #NEED TO COMPLETE AND INCLUDE NESTED FORMS ATTRIBUTES TOO don't forget nested :id too, 
         params.require(:location).permit(:city, :continent, :country) 
      end 
 
