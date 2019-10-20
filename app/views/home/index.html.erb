@@ -1,6 +1,24 @@
-  <% content_for :title, "Uff! - Discover Street Art" %>
-  <section class="section">
+<% content_for :title, "Uff! - Discover Street Art" %>
+ <br><section class="hero is-small viole">
+  <div class="hero-body">
     <div class="container">
+ 
+
+        <ul>
+            <li>
+              <figure class="image is-4by3">
+                <img src="/img/front.jpg" alt="Frontpage image">
+              </figure>
+            </li> 
+      
+
+        </ul>
+    </div>
+  </div>
+</section>
+
+  <section class="section">
+    <div class="container" id="homeLatest">
 
     <h2 class="title is-2">Latest Walls</h2>
         <%= render '/walls/walls', model: @latest_walls %>
