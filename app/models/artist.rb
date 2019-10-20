@@ -34,6 +34,12 @@ class Artist < ApplicationRecord
     def artist_name
         self.name
     end
+
+    def instagram_username(url)
+        if url
+            url.match(/^((http[s]?|ftp):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?$/)[6].gsub("/", "") 
+        end
+    end
     
 
 end
