@@ -21,13 +21,13 @@
                 </div>
                 <div class="media-content">
                   <p class="title is-4"><%= link_to w.location.city, wall_path(w)%></p>
-                  <p class="subtitle is-6">@johnsmith</p>
+                  <p class="subtitle is-6"><%= wall_artists_card(w)%></p>
                 </div>
               </div>
 
               <div class="content">
-                <%= w.description.truncate(55)%> <a>@bulmaio</a>.
-                <a href="#">#css</a> <a href="#">#responsive</a>
+                <p><%= w.description.truncate(100)%> </p>
+                <%= check_tags(w)%>
                 <br>
                 <time datetime=<%="#{w.date_done}"%>><%=w.date_done.year if w.date_done %></time>
               </div>

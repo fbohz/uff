@@ -23,9 +23,8 @@
 
               <div class="content">
                 <p> <%= a.bio.truncate(100)%> </p>
-                <%if a.tags.present?%>
-                  <a> <%="##{a.tags.first.name }" %> </a>
-                <%end%>
+                <%# lives in HomeHelper %>
+                <%= check_tags(a)%>
               </div>
             </div>
           </div>
