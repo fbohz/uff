@@ -32,7 +32,7 @@ class Wall < ApplicationRecord
 
   def artists_attributes=(artists_attributes)
       self.artists.clear
-
+      if artists_attributes
       artists_attributes.values.each do |artist_attribute|
         artist = Artist.find_by(name: artist_attribute["name"])
         if artist
@@ -41,16 +41,19 @@ class Wall < ApplicationRecord
           self.add_errors("Artist named '#{artist_attribute["name"]}' not found! If you meant to add new artist click Add New Artist below")
         end 
       end
+    end 
   end
 
   def tags_attributes=(tags_attributes)
     self.tags.clear
+    if tags_attributes
     tags_attributes.values.each do |tag_attribute|
       if tag_attribute["name"]
         tag = Tag.find_or_initialize_by(name: tag_attribute["name"].downcase.strip.gsub(" ", ""))
         self.tags << tag
       end 
     end
+   end 
   end
 
 

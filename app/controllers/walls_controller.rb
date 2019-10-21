@@ -69,7 +69,7 @@ class WallsController < ApplicationController
                 @wall.errors[:base] << e
             end
             render :new
-        elsif @wall.update(date_done: @date, description: wall_params["description"], address: wall_params["address"], artists_attributes: wall_params["artists_attributes"], tags_attributes: wall_params["tags_attributes"]) && @wall.images.attach(images: wall_params["images"])
+        elsif @wall.update(date_done: @date, description: wall_params["description"], address: wall_params["address"], artists_attributes: wall_params["artists_attributes"], tags_attributes: wall_params["tags_attributes"], images: wall_params["images"])
             flash[:notice] = "Wall updated!"
             redirect_to @wall
         else 

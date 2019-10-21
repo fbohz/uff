@@ -19,17 +19,19 @@ module WallsHelper
 
     def add_contr_details(wall)
         html = ''
-        colab_details = ArtistWall.find_by(wall_id: wall.id).collaboration_details
-        if wall.artists.length > 1 && !colab_details
-            html << content_tag(:button, "+ Edit Contribution Info", class: "addContr button is-small is-primary is-inverted")
-        elsif colab_details
-            html << "<h6 class='title is-6'> Collaboration Details: </h6>"
-            html << "<div id='colabDet'>#{colab_details} </div>"
-            html << "<button class='addContr button is-small is-primary is-inverted'>+ Edit Contribution Info</button>"
+        if wall.artists.present?
+            colab_details = ArtistWall.find_by(wall_id: wall.id).collaboration_details
+            if wall.artists.length > 1 && !colab_details
+                html << content_tag(:button, "+ Edit Contribution Info", class: "addContr button is-small is-primary is-inverted")
+            elsif colab_details
+                html << "<h6 class='title is-6'> Collaboration Details: </h6>"
+                html << "<div id='colabDet'>#{colab_details} </div>"
+                html << "<button class='addContr button is-small is-primary is-inverted'>+ Edit Contribution Info</button>"
 
+            end
+            html.html_safe
         end
-        html.html_safe
-    end
+    end 
 
     def link_artist(wall)
         html = ''
