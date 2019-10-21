@@ -13,7 +13,7 @@ class Artist < ApplicationRecord
     has_many :bravos, through: :walls
     has_many :tags, through: :walls
     accepts_nested_attributes_for :walls, :locations
-    has_one_attached :image
+    has_one_attached :image #for V2 implementation
 
     def self.get_artist_names
         path = "./public/static.json"

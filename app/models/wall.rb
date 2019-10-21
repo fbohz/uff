@@ -13,7 +13,6 @@ class Wall < ApplicationRecord
   validates_length_of :images, maximum: 1, message: "limit reached! Only one (1) image allowed for now. More upload capabilities coming soon!"
   validates :images, allow_blank: true, format: { with: %r{.(gif|jpg|png)\Z}i, message: 'must be of type GIF, JPG or PNG!' }
 
-
   def self.latest_walls
     order(created_at: :desc).limit(4)
   end 

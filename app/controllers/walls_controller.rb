@@ -119,7 +119,13 @@ class WallsController < ApplicationController
        @date = Date.new(get_data) unless get_data == 0
     end
 
-    def validate_image
+    def validate_and_resize
+        case
+        when wall_params["images"]
+            
+            # wall_params["images"].collect do |i|
 
+
+        end 
     end 
 end

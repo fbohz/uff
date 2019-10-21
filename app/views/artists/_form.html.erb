@@ -30,14 +30,8 @@
             <%= f.text_area :bio, cols: 50, rows: 6, required: true  %>
          </div></div>
 
-        <div class="field">
-         <!-- need implement add file later--> 
-         <div class="control">
-            <%= f.label :image %>
-            <%= f.file_field :image %>
-         </div></div>         
+         <!-- Might implement add image in future versions-->     
 
-        <!-- need add new tag button, maybe break up this form? --> 
     </div><br>
     <div class="buttons">
     <%= f.submit "Submit", { class: 'button is-danger' } %>

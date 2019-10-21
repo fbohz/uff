@@ -53,7 +53,8 @@ class ArtistsController < ApplicationController
     private
 
     def artist_params
-       params.require(:artist).permit(:name, :hometown, :instagram, :website, :bio, :image, :wall_id, :location_id) 
+        # :image might be implemented in V2 of app.
+       params.require(:artist).permit(:name, :hometown, :instagram, :website, :bio, :wall_id, :location_id) 
     end 
 
     def set_artist
