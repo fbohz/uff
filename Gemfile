@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'image_processing', '~> 1.2'
 # Active Storage Rezise Images
 gem "mini_magick"
+# gem 'image_optim'
 
 #Google Storage
 gem "google-cloud-storage", "~> 1.11", require: false

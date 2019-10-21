@@ -11,7 +11,6 @@ class Wall < ApplicationRecord
   validates_length_of :artists, maximum: 4, message: "limit reached! Too many artists for a single wall (limit 4)"
   validates_length_of :tags, maximum: 4, message: "only 4 tags per wall are allowed."
   validates_length_of :images, maximum: 1, message: "limit reached! Only one (1) image allowed for now. More upload capabilities coming soon!"
-  # validates :images, allow_blank: true, format: { with: !%r{.(gif|jpe?g|png)\Z}i, message: 'must be of type GIF, JPG or PNG!' }
   validate :image_validation
 
 
@@ -91,11 +90,8 @@ class Wall < ApplicationRecord
         errors.add(:base, "Images should be less than 1MB") 
       elsif images.detect { |i| !i.filename.to_s.match(/\.(gif|jpe?g|png)$/i) }
         errors.add(:base, "Images must be of type GIF, JPG or PNG!") 
-      else
-        errors.add(:base, "Outside of conditional")
       end 
     end 
-    # binding.pry
   end
 
 end

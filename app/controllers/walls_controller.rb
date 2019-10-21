@@ -2,6 +2,7 @@ class WallsController < ApplicationController
     before_action :set_wall, only: [:show, :edit, :update, :destroy]
     before_action :update_artist_names_json, only: [:new, :edit] 
     before_action :get_date, only: [:create, :update]
+    before_action :img_resize, only: [:create, :update]
 
     def index
         case
@@ -41,6 +42,7 @@ class WallsController < ApplicationController
     end 
 
     def create
+        # raise wall_params.inspect
         @wall = Wall.new(active: true, date_done: @date, description: wall_params["description"], address: wall_params["address"], artists_attributes: wall_params["artists_attributes"], tags_attributes: wall_params["tags_attributes"], images: wall_params["images"])
 
         @wall.check_location(wall_params["location_name"])
@@ -119,13 +121,15 @@ class WallsController < ApplicationController
        @date = Date.new(get_data) unless get_data == 0
     end
 
-    def validate_and_resize
-        case
-        when wall_params["images"]
-            
-            # wall_params["images"].collect do |i|
-
-
+    def img_resize
+        if wall_params["images"]
+            wall_params["images"].collect do |i|
+                if i.tempfile.size > 300.kilobytes                     
+                    i = MiniMagick::Image.new("#{i.tempfile.path}")
+                    i.strip
+                    i.resize "70%"
+                end 
+            end 
         end 
     end 
 end
