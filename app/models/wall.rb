@@ -76,5 +76,4 @@ class Wall < ApplicationRecord
 
   end
 
-
 end
