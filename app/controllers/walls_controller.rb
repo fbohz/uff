@@ -118,4 +118,8 @@ class WallsController < ApplicationController
        get_data = wall_params["date_done"].to_i
        @date = Date.new(get_data) unless get_data == 0
     end
+
+    def validate_image
+
+    end 
 end
