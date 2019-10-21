@@ -56,4 +56,17 @@ module WallsHelper
         end
         html.html_safe
     end 
+
+
+    def insert_image(wall)
+        html = ''
+        if wall.images.present?
+            html << image_tag(wall.images[0])
+        else 
+            html << "<img src='https://bulma.io/images/placeholders/1280x960.png' alt='Placeholder image'>"
+        end
+
+        html.html_safe
+    end
+
 end

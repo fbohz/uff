@@ -41,7 +41,6 @@ class WallsController < ApplicationController
     end 
 
     def create
-        raise wall_params.inspect
         @wall = Wall.new(active: true, date_done: @date, description: wall_params["description"], address: wall_params["address"], artists_attributes: wall_params["artists_attributes"], tags_attributes: wall_params["tags_attributes"], images: wall_params["images"])
 
         @wall.check_location(wall_params["location_name"])

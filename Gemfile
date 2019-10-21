@@ -27,6 +27,9 @@ gem 'image_processing', '~> 1.2'
 # Active Storage Rezise Images
 gem "mini_magick"
 
+#Google Storage
+gem "google-cloud-storage", "~> 1.11", require: false
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
