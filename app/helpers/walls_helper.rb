@@ -65,7 +65,7 @@ module WallsHelper
         if image.present?
             html <<  "<img src='https://storage.googleapis.com/rails_proj/#{image.key.to_s}' alt='Wall image'>"
         else 
-            html << "<img src='https://bulma.io/images/placeholders/1280x960.png' alt='Placeholder image'>"
+            html << "<img src='/img/wsoon.jpg' alt='Placeholder image'>"
         end
 
         html.html_safe
