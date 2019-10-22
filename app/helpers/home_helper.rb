@@ -13,12 +13,16 @@ module HomeHelper
 
     def wall_artists_card(wall)
         html = ''
-        if wall.artists.length > 1
-            html << "<b> Multiple Artist </b>Collaboration"
-        else
-            artist = wall.artists.first
-            html << link_to(artist.name, artist_path(artist)) 
-        end
-        html.html_safe
+        if wall.artists.present?
+            if wall.artists.length > 1
+                html << "<b> Multiple Artist </b>Collaboration"
+            else
+                artist = wall.artists.first
+                html << link_to(artist.name, artist_path(artist)) 
+            end
+            html.html_safe
+        else 
+            html << "Unclaimed Wall"    
+        end 
     end 
 end
