@@ -83,7 +83,6 @@ class Wall < ApplicationRecord
   private
 
   def image_validation
-    
     if images.present?
       if images.detect { |i| i.byte_size > 1.megabytes }
         errors.add(:base, "Images should be less than 1MB") 
