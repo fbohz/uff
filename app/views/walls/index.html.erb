@@ -1,10 +1,4 @@
 <h2 class="title is-2"><%= index_title @artist if @artist %> </h2>
-
-  <section class="section">
-    <div class="container">
         <%= no_walls_check(@artist) %>
         <%= render 'walls', model: @walls %>
-   </div>
-
-  </section>
 

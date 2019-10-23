@@ -15,7 +15,7 @@ module ArtistsHelper
 
     def no_walls_check(a)
         html = ''
-        if a.walls.empty?
+        if a && a.walls.empty?
             html << "<h4 class='title is-4'> Artist has now walls yet :( </h4> <br>"
             html <<  link_to("Add New #{a.name} Wall", new_artist_wall_path(a), class: "button is-danger")
             

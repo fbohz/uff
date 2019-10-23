@@ -1,10 +1,6 @@
 <h2 class="title is-2"> <%="Showing #{@count} Cities"%> </h2>
-  <section class="section">
-      <div class="control">
-        <%= link_to "Add New Location?", new_location_path, class: "button is-warning" %>
+    <%= link_to "Add New Location?", new_location_path, class: "button is-warning" %>
      </div><br>
     <div class="container">
         <%= render 'card_loc', model: @locations %>
    </div>
-
-  </section>
