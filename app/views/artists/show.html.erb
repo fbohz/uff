@@ -6,11 +6,11 @@
 </div>
 
 <div class="columns">
-  <div class="column">
-    <%= link_to "Walls Done by #{@artist.name}", artist_walls_path(@artist), class: "button is-warning" %>
+  <div class="column is-4">
+    <%= link_to "Walls by #{@artist.name}", artist_walls_path(@artist), class: "button is-warning" %>
   </div>
 
-  <div class="column">
-    <%= link_to "Add New #{@artist.name} Wall", new_artist_wall_path(@artist), class: "button is-danger" %>
+  <div class="column is-4">
+    <%= link_to "New #{@artist.name} Wall", new_artist_wall_path(@artist), class: "button is-danger" %>
   </div>
 </div>
