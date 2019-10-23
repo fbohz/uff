@@ -1,4 +1,9 @@
-<h2 class="title is-2"><%= index_title @artist if @artist %> </h2>
+    <% if @artist%>
+          <h2 class="title is-2"><%= index_title @artist if @artist %> </h2>
+    <%else%>
+          <h2 class="title is-2"> <%="Showing #{@walls.count} Walls"%> </h2> 
+     <%end%>
+     <div class="container">
         <%= no_walls_check(@artist) %>
         <%= render 'walls', model: @walls %>
-
+     </div>      

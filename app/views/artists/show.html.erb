@@ -5,12 +5,12 @@
 <%= link_to "Instagram", @artist.instagram, target: :_blank %>
 </div>
 
-<div class="columns is-multiline is-1-mobile">
-  <div class="field column is-one-quarter">
+<div class="columns">
+  <div class="column">
     <%= link_to "Walls Done by #{@artist.name}", artist_walls_path(@artist), class: "button is-warning" %>
   </div>
 
-  <div class="field column is-one-quarter">
+  <div class="column">
     <%= link_to "Add New #{@artist.name} Wall", new_artist_wall_path(@artist), class: "button is-danger" %>
-  </div><br>
+  </div>
 </div>

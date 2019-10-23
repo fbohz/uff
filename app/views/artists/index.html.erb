@@ -1,1 +1,6 @@
-<%= render 'card', model: @artists %>
+<h2 class="title is-2"> <%="Showing #{@artists.count} Artists"%> </h2> 
+    <%= link_to "Add New Artist?", new_artist_path, class: "button is-warning" %>
+     </div><br>
+    <div class="container">
+        <%= render 'card', model: @artists %>
+    </div>
