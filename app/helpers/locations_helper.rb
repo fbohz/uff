@@ -12,4 +12,12 @@ module LocationsHelper
         end     
         html.html_safe    
     end
+
+    def delete_helper(l)
+        html = ''
+        if l.walls.length == 0
+            html << button_to('Delete', location_path(l), method: :delete, data: { confirm: "This will delete #{l.city} you sure?"}, class: 'button is-small is-danger')
+        end
+        html.html_safe
+    end
 end

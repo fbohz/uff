@@ -37,8 +37,9 @@ class LocationsController < ApplicationController
             @location.errors[:base] << "Invalid country name, try again." unless !@invalid
             render :new
         else 
-            @location.save 
-            redirect_to location_path(@location)
+            @location.save
+            flash[:notice] = "#{@location.city} added!" 
+            redirect_to locations_path
         end  
 
     end 
@@ -58,6 +59,15 @@ class LocationsController < ApplicationController
     end 
 
     def destroy
+        raise params.inspect
+        if @location.walls.length == 0
+            @location.destroy
+            flash[:alert] = "#{@location.city} deleted!"
+            redirect_to locations_path
+        else 
+            flash[:alert] = "Unable to delete #{@location.city} as there are walls associated with it"
+            redirect_to locations_path
+        end
     end
 
     private
