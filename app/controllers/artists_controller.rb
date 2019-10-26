@@ -49,7 +49,7 @@ class ArtistsController < ApplicationController
             flash[:alert] = "#{@artist.name} deleted!"
             redirect_to root_path            
         else 
-            flash[:alert] = "Unable to delete #{@artist.name}! There are walls associated. Delete or remove associated walls first."
+            flash[:alert] = "Unable to delete #{@artist.name}! There are walls associated. Remove associated walls first."
             redirect_to artist_path(@artist)
         end
     end

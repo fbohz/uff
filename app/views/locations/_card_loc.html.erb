@@ -11,7 +11,7 @@
                   </figure>
                 </div>
                 <div class="media-content">
-                  <p class="title is-4"><%= l.city%></p>
+                  <p class="title is-4"><%= l.city%> | <%=link_to "edit", edit_location_path(l)%></p>
                   <p class="subtitle is-6"> <%="#{ l.country }, #{l.continent}"%> </p>
                 </div>
               </div>
