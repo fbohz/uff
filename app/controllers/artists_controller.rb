@@ -44,6 +44,14 @@ class ArtistsController < ApplicationController
     end 
 
     def destroy
+        if @artist.walls.length == 0
+            @artist.destroy
+            flash[:alert] = "#{@artist.name} deleted!"
+            redirect_to root_path            
+        else 
+            flash[:alert] = "Unable to delete #{@artist.name}! There are walls associated. Delete or remove associated walls first."
+            redirect_to artist_path(@artist)
+        end
     end
 
     def latest_artists

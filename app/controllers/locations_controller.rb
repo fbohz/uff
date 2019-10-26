@@ -59,7 +59,6 @@ class LocationsController < ApplicationController
     end 
 
     def destroy
-        raise params.inspect
         if @location.walls.length == 0
             @location.destroy
             flash[:alert] = "#{@location.city} deleted!"
