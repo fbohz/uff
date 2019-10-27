@@ -25,6 +25,5 @@
     <h4 class="title is-4">Tags</h4>
     <div><%= tag_list(@wall) %></div>  <br>
     </div></div></div>
-      <%= button_to "Edit Wall", edit_wall_path(@wall), :method => "get", class: "button is-small is-primary is-inverted" %>
-      <%= button_to "Delete", @wall, method: :delete, data: { confirm: "This will delete this wall you sure?" }, class: "button is-small is-danger is-inverted" %>
+      <%= wall_show_buttons(@wall)  %>
     </div> 

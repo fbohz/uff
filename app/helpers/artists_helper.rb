@@ -22,4 +22,13 @@ module ArtistsHelper
         end
         html.html_safe
     end 
+
+    def artist_show_buttons(a)
+        html = ''
+        if user_signed_in?
+            html << button_to("Edit Artist", edit_artist_path(a), :method => "get", class: "button is-small is-primary is-inverted") 
+            html << button_to("Delete", a, method: :delete, data: { confirm: "This will delete #{@artist.name} you sure?" }, class: "button is-small is-danger is-inverted")
+        end 
+        html.html_safe
+    end 
 end

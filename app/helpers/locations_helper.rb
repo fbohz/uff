@@ -20,4 +20,13 @@ module LocationsHelper
         end
         html.html_safe
     end
+
+    def location_edit_link(l)
+        html = ''
+        if user_signed_in?
+            html = " | "
+            html << link_to("edit", edit_location_path(l))
+        end 
+        html.html_safe
+    end
 end

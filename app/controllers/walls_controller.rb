@@ -3,6 +3,7 @@ class WallsController < ApplicationController
     before_action :update_artist_names_json, only: [:new, :edit] 
     before_action :get_date, only: [:create, :update]
     before_action :img_resize, only: [:create, :update]
+    before_action :authenticate_user!, only: [:new, :edit]
 
     def index
         case

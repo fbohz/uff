@@ -79,4 +79,13 @@ module WallsHelper
         html.html_safe
     end 
 
+    def wall_show_buttons(w)
+        html = ''
+        if user_signed_in?
+            html << button_to("Edit Wall", edit_wall_path(@wall), :method => "get", class: "button is-small is-primary is-inverted")
+            html << button_to("Delete", w, method: :delete, data: { confirm: "This will delete this wall you sure?" }, class: "button is-small is-danger is-inverted")
+        end 
+        html.html_safe
+    end
+
 end
