@@ -87,7 +87,6 @@ module WallsHelper
             html << "<br>"
         end 
         html.html_safe
-
     end
 
     def wall_show_buttons(w)
