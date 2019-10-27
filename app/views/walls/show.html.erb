@@ -7,8 +7,8 @@
        </figure>
        </div>
     <div class="media-content has-text-centered	">   
-     <p class="title is-4"> <%= @wall.location.city %> &nbsp; | &nbsp;
-     <%= @wall.date_done.year if @wall.date_done %> </p></div>
+     <p class="title is-4"> <%= @wall.location.city %> 
+     <%= check_date(@wall)%> </p></div>
     <p> <%= @wall.description %> </p> <br>
     <p class="title is-4">Artist(s) Involved</p>
     <!-- helper in WallsHelper--> 

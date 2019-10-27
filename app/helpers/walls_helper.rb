@@ -71,4 +71,12 @@ module WallsHelper
         html.html_safe
     end
 
+    def check_date(w)
+        html = ''
+        if w.date_done
+            html << "| #{w.date_done.year}"
+        end 
+        html.html_safe
+    end 
+
 end
