@@ -1,25 +1,29 @@
+  <div class="columns is-multiline is-1-mobile">
+    <div class="field column is-half">
+      <div class="card">
+        <div class="card-image">
+         <figure class="image is-4by3">
+           <%= insert_wall_image_link(@artist) %>
+          </figure>
+       </div>
+            
 <div class="field">
-<h1> <%= @artist.name %> </h1>
-<h1> <%= @artist.hometown %> </h1>
-<p> <%= @artist.bio %> </p>
-<%= link_to "Instagram", @artist.instagram, target: :_blank %>
-</div>
+  <p class="title is-2"> <%= @artist.name %> </p></div> 
+   <div class="media-content">
+  <p class="title is-5"> <%= @artist.hometown %> <br>
+  <%= link_to "@#{@artist.instagram_username(@artist.instagram)}", @artist.instagram, target: :_blank unless !@artist.instagram %> 
+  </p> </div> <br>
+      
+  <p> <%= @artist.bio %> </p> <br>
+    <%= button_to "Edit Artist", edit_artist_path(@artist), :method => "get", class: "button is-small is-primary is-inverted" %>
+    <%= button_to "Delete", @artist, method: :delete, data: { confirm: "This will delete #{@artist.name} you sure?" }, class: "button is-small is-danger is-inverted" %> 
+</div></div></div>
 
-<div class="columns">
-  <div class="column is-4">
-    <%= link_to "Walls by #{@artist.name}", artist_walls_path(@artist), class: "button is-warning" %>
-  </div>
+<div class="field column is-half is-1-mobile">
 
-  <div class="column is-4">
+    <%= link_to "Walls by #{@artist.name}", artist_walls_path(@artist), class: "button is-warning" %> &nbsp;
+
+
     <%= link_to "New #{@artist.name} Wall", new_artist_wall_path(@artist), class: "button is-danger" %>
-  </div> <br>
-</div>
-<div class="content">
-  <div class="field">
-    <%= button_to "Delete?", @artist, method: :delete, data: { confirm: "This will delete #{@artist.name} you sure?" }, class: "button is-small is-danger is-inverted" %>
-  </div>
-  <div class="field">
-  <div><%= button_to "Edit Artist", edit_artist_path(@artist), :method => "get", class: "button is-small is-primary is-inverted" %></div>
-  </div>
-
-</div>
+   <br>
+</div></div>

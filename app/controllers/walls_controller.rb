@@ -90,13 +90,6 @@ class WallsController < ApplicationController
         flash[:notice] = "Wall deleted!"
         redirect_to root_path
     end
-
-
-    # def new_artist_partial
-    #     respond_to do |format|
-    #       format.js
-    #     end
-    # end
     
     private
 
