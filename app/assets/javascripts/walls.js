@@ -91,7 +91,7 @@ $(document).on('turbolinks:load', function() {
          {
          // append input field with unique attributes in div 
          $('#contFields').append(
-          `<div class="control colabFields">
+          `<div class="colabFields media-content has-text-centered ">
           <textarea cols="50" rows="6" placeholder="Add Any Collaboration Details" name="artist_wall[collaboration_details]" id="artist_wall_collaboration_details">${colabValue}</textarea>
           <input type="submit" name="commit" value="Submit" class="button is-small is-primary" data-disable-with="Submit"> </div>
           `
