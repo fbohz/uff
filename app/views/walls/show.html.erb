@@ -10,6 +10,7 @@
      <p class="title is-4"> <%= @wall.location.city %> 
      <%= check_date(@wall)%> </p></div>
     <p> <%= @wall.description %> </p> <br>
+    <%= check_address(@wall)%>
     <p class="title is-4">Artist(s) Involved</p>
     <!-- helper in WallsHelper--> 
     <div class="content"><%= link_artist(@wall) %></div>

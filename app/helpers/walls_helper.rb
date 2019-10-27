@@ -79,6 +79,17 @@ module WallsHelper
         html.html_safe
     end 
 
+    def check_address(w)
+        html = ''
+        if w.address.present?
+            html << "<small> <b>Address/Directions </b> <br>"
+            html << "#{w.address}</small> <br>"
+            html << "<br>"
+        end 
+        html.html_safe
+
+    end
+
     def wall_show_buttons(w)
         html = ''
         if user_signed_in?
