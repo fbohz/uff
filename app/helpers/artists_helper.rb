@@ -44,6 +44,15 @@ module ArtistsHelper
         html.html_safe    
     end
 
+    def add_instagram_only(a)
+        html = ''
+        if a.instagram.present?
+            instagram = link_to("@#{a.instagram_username(a.instagram)}", a.instagram, target: :_blank)
+            html << instagram
+        end
+        html.html_safe 
+    end 
+
     def artist_show_buttons(a)
         html = ''
         if user_signed_in?

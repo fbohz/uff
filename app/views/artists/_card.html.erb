@@ -17,7 +17,7 @@
                 </div>
                 <div class="media-content">
                   <p class="title is-4"><%= link_to a.name, artist_path(a)%></p>
-                  <p class="subtitle is-6"> <%= link_to "@#{a.instagram_username(a.instagram)}", a.instagram, target: :_blank unless !a.instagram %> </p>
+                  <p class="subtitle is-6"> <%= add_instagram_only(a)%> </p>
                 </div>
               </div>
 
