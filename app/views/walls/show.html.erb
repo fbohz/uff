@@ -1,37 +1,30 @@
-  <br><section class="hero is-small is-light">
-  <div class="hero-body">
-        <ul>
-            <li>
-              <figure class="image responsivy">
-              <%= insert_image_link(@wall.images.first)%>
-              </figure>
-            </li> 
-      
-
-        </ul>
-  </div>
-</section>
-
-  <h2> <%= @wall.location.city %> </h2>
-
-  <p> <%= @wall.description %> </p>
-  <p> <%= @wall.date_done.year if @wall.date_done %> </p>
-
-  <h4 class="title is-4">Artist(s) Involved</h4>
-  <!-- helper in WallsHelper--> 
-  <div class="content"><%= link_artist(@wall) %></div>
+<div class="columns is-multiline is-1-mobile">
+  <div class="field column is-half has-text-centered">
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-4by3">
+          <%= insert_image_link(@wall.images.first)%>
+       </figure>
+       </div>
+    <div class="media-content has-text-centered	">   
+     <p class="title is-4"> <%= @wall.location.city %> &nbsp; | &nbsp;
+     <%= @wall.date_done.year if @wall.date_done %> </p></div>
+    <p> <%= @wall.description %> </p> <br>
+    <p class="title is-4">Artist(s) Involved</p>
+    <!-- helper in WallsHelper--> 
+    <div class="content"><%= link_artist(@wall) %></div>
 
   <!-- for ArtistWall cont details uses helper--> 
-  <div class="content"><%= add_contr_details(@wall)%></div>
-  <% if @wall.artists.present?%>
-    <%= form_with scope: :artist_wall, url: artist_wall_path(@artist_wall), method: :patch, local:true do |f| %>
-    <div id="contFields">
+    <div class="content"><%= add_contr_details(@wall)%></div>
+    <% if @wall.artists.present?%>
+      <%= form_with scope: :artist_wall, url: artist_wall_path(@artist_wall), method: :patch, local:true do |f| %>
+      <div id="contFields">
+        </div>
+    <% end %><% end %>
 
-      </div>
-  <% end %><% end %>
-
-  <h4 class="title is-4">Tags</h4>
-  <div><%= tag_list(@wall) %></div> <br>
-
-      <div class="field"><%= button_to "Edit Wall", edit_wall_path(@wall), :method => "get", class: "button is-medium is-primary" %> <br>
-      <%= button_to "Delete?", @wall, method: :delete, data: { confirm: "This will delete this wall you sure?" }, class: "button is-small is-danger is-inverted" %></div>
+    <h4 class="title is-4">Tags</h4>
+    <div><%= tag_list(@wall) %></div>  <br>
+    </div></div></div>
+      <%= button_to "Edit Wall", edit_wall_path(@wall), :method => "get", class: "button is-small is-primary is-inverted" %>
+      <%= button_to "Delete", @wall, method: :delete, data: { confirm: "This will delete this wall you sure?" }, class: "button is-small is-danger is-inverted" %>
+    </div> 

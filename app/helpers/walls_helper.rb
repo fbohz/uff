@@ -52,7 +52,7 @@ module WallsHelper
             html << "No Tags. Edit Wall to Add Tags"
         else 
             wall.tags.each do |t|
-                html << "##{t.name}"
+                html << "<a> ##{t.name} </a>"
                 html << "</br>"
             end
         end
