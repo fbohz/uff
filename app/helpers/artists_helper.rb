@@ -23,6 +23,24 @@ module ArtistsHelper
         html.html_safe
     end 
 
+    def add_urls(a)
+        html = ''
+        website = link_to(a.website, a.website, target: :_blank)
+        instagram = link_to("@#{a.instagram_username(a.instagram)}", a.instagram, target: :_blank)
+    
+        case
+        when a.website && a.instagram
+            html << instagram
+            html << "<br>"
+            html << "<small class='is-small'>#{website}</small> <br>"
+        when a.instagram
+            html << instagram
+        when a.website
+            html "<small>#{website}</small> <br>"    
+        end
+        html.html_safe    
+    end
+
     def artist_show_buttons(a)
         html = ''
         if user_signed_in?

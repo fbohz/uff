@@ -11,7 +11,7 @@
   <p class="title is-2"> <%= @artist.name %> </p></div> 
    <div class="media-content">
   <p class="title is-5"> <%= @artist.hometown %> <br>
-  <%= link_to "@#{@artist.instagram_username(@artist.instagram)}", @artist.instagram, target: :_blank unless !@artist.instagram %> 
+  <%= add_urls(@artist)%> 
   </p> </div> <br>
       
   <p> <%= @artist.bio %> </p> <br>
