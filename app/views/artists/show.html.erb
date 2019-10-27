@@ -18,7 +18,7 @@
   <div class="field">
     <%= button_to "Delete?", @artist, method: :delete, data: { confirm: "This will delete #{@artist.name} you sure?" }, class: "button is-small is-danger is-inverted" %>
   </div>
-    <div class="field">
+  <div class="field">
   <div><%= button_to "Edit Artist", edit_artist_path(@artist), :method => "get", class: "button is-small is-primary is-inverted" %></div>
   </div>
 

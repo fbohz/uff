@@ -86,7 +86,7 @@ class WallsController < ApplicationController
     end 
 
     def destroy
-        #MAKE SURE WALL IS DELETED FROM BOTH ARTIST AND WALL ITSELF!
+        @wall.destroy
         flash[:notice] = "Wall deleted!"
         redirect_to root_path
     end

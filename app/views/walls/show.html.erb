@@ -11,25 +11,27 @@
         </ul>
   </div>
 </section>
-<h2> <%= @wall.location.city %> </h2>
 
-<p> <%= @wall.description %> </p>
-<p> <%= @wall.date_done.year if @wall.date_done %> </p>
+  <h2> <%= @wall.location.city %> </h2>
 
-<h4 class="title is-4">Artist(s) Involved</h4>
-<!-- helper in WallsHelper--> 
-<div class="content"><%= link_artist(@wall) %></div>
+  <p> <%= @wall.description %> </p>
+  <p> <%= @wall.date_done.year if @wall.date_done %> </p>
 
-<!-- for ArtistWall cont details uses helper--> 
-<div class="content"><%= add_contr_details(@wall)%></div>
-<% if @wall.artists.present?%>
-  <%= form_with scope: :artist_wall, url: artist_wall_path(@artist_wall), method: :patch, local:true do |f| %>
-  <div id="contFields">
+  <h4 class="title is-4">Artist(s) Involved</h4>
+  <!-- helper in WallsHelper--> 
+  <div class="content"><%= link_artist(@wall) %></div>
 
-    </div>
-<% end %><% end %>
+  <!-- for ArtistWall cont details uses helper--> 
+  <div class="content"><%= add_contr_details(@wall)%></div>
+  <% if @wall.artists.present?%>
+    <%= form_with scope: :artist_wall, url: artist_wall_path(@artist_wall), method: :patch, local:true do |f| %>
+    <div id="contFields">
 
-<h4 class="title is-4">Tags</h4>
-<div><%= tag_list(@wall) %></div>
+      </div>
+  <% end %><% end %>
 
-<div><%= button_to "Edit Wall", edit_wall_path(@wall), :method => "get", class: "button is-small is-danger" %></div>
+  <h4 class="title is-4">Tags</h4>
+  <div><%= tag_list(@wall) %></div> <br>
+
+      <div class="field"><%= button_to "Edit Wall", edit_wall_path(@wall), :method => "get", class: "button is-medium is-primary" %> <br>
+      <%= button_to "Delete?", @wall, method: :delete, data: { confirm: "This will delete this wall you sure?" }, class: "button is-small is-danger is-inverted" %></div>
