@@ -36,7 +36,7 @@ t3 = Tag.new(name: "urban")
 candelaria1.artists += [rodez, pez]
 candelaria1.tags += [t1, t2, t3]
 candelaria1.save
-candelaria1.artist_walls.last.update(contribution_details: "collaboration between pez and rodez")
+# candelaria1.artist_walls.last.update(contribution_details: "collaboration between pez and rodez")
 
 # ACCESSING DATA e.g.
 # check changes
