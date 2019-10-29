@@ -9,13 +9,13 @@ local:
 google:
   service: GCS
   project: rails-storage-256518
-  credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'].as_json %>
+  credentials: <%= Rails.application.credentials.uff_gce.to_json %>
   bucket: rails_proj
 
 google_dev:
   service: GCS
   project: rails-storage-256518
-  credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'].as_json %>
+  credentials: <%= Rails.application.credentials.uff_gce.to_json %>
   bucket: rails_proj
 
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
