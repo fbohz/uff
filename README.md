@@ -1,6 +1,6 @@
-# Uff!
+# [Uff!](https://uff-app.herokuapp.com/)
 
-Uff! A Rails App to Discover Street Art. Find the best artists and their walls, discover new art around the world. Share a wall you love and help build a community of street art lovers!
+**Uff! A Rails App to Discover Street Art**. Find the best artists and their walls, discover new art around the world. Share a wall you love and help build a community of street art lovers!
 
 ![uffscreenshots](https://miro.medium.com/max/1360/1*Z3XS7Y7vPBaXHqlp-_yrvg.png)
 
