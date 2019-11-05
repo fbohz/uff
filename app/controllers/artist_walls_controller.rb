@@ -4,6 +4,7 @@ class ArtistWallsController < ApplicationController
 
 
     def update
+        #discovered some weird behavior on local, collab details might have to be refactored to be just an attribute of Wall to make it easier to deal. 
         if @artist_wall.update(collaboration_details: artist_wall_params["collaboration_details"])
          
             flash[:notice] = "Collaboration Details Updated!"

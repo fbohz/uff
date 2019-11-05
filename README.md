@@ -8,7 +8,7 @@
 Uff! [https://uff-app.herokuapp.com/](https://uff-app.herokuapp.com/). <br/>
 Log-in: Use Facebook or your Google Account. Through Omninauth we don't store any of your personal data.
 
-For development, just clone, run `bundle install`, `rake db:migrate`, `rake db:seed` and then run `rails s`. Make sure you have Postgres  installed as this app uses this for its database. Questions? Email me at misguidedapps@gmail.com.
+For development, just clone, run `bundle install`,  `rake db:create` , `rake db:migrate`, `rake db:seed` and then run `rails s`. Make sure you have Postgres  installed as this app uses this for its database. Questions? Email me at misguidedapps@gmail.com.
 
 ## Contribution
 For submitting something back, be it a patch, some documentation, or new feature requires some level of community interactions. Let's connect!
