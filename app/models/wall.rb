@@ -35,7 +35,7 @@ class Wall < ApplicationRecord
       self.artists.clear
       if artists_attributes
       artists_attributes.values.each do |artist_attribute|
-        artist = Artist.find_by(name: artist_attribute["name"])
+        artist = Artist.find_by(name: artist_attribute["name"].strip.capitalize)
         if artist
           self.artists << artist 
         else
